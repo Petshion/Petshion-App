@@ -37,6 +37,17 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Fonts/NanumSquareRegular.ttf</string>
+		<string>Fonts/NanumSquareBold.ttf</string>
+		<string>Fonts/NanumSquareLight.ttf</string>
+		<string>Fonts/NanumSquareExtraBold.ttf</string>
+		<string>Fonts/NanumSquareRoundB.ttf</string>
+		<string>Fonts/NanumSquareRoundEB.ttf</string>
+		<string>Fonts/NanumSquareRoundL.ttf</string>
+		<string>Fonts/NanumSquareRoundR.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
