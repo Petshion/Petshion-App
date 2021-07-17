@@ -136,6 +136,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				3C5499688F7B5243C41BE2DB /* Pods */,
+				DAB40D87B3C0479396A689AF /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -149,6 +150,13 @@
 				00E356EE1AD99517003FC87E /* petshionTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		DAB40D87B3C0479396A689AF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,11 +190,11 @@
 				39C9688B4FAFD72D066CCC7A /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
-				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				EF40614979A0B16E52AEA8BE /* [CP] Embed Pods Frameworks */,
 				3E4024A461724A31609226AF /* [CP] Copy Pods Resources */,
+				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 			);
 			buildRules = (
 			);

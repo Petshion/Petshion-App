@@ -1,11 +1,12 @@
 import React, {useLayoutEffect} from 'react';
-import {View, Text} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import MainScreen from '../screens/servise/MainScreen';
+
 import SearchScreen from '../screens/servise/SearchScreen';
 import RandomScreen from '../screens/servise/RandomScreen';
-import BasketScreen from '../screens/servise/BasketScreen';
+import MainScreen from '../screens/servise/MainScreen';
 import UserScreen from '../screens/servise/UserScreen';
+import BasketScreen from '../screens/servise/BasketScreen';
+import BottomIcon from '../components/BottomIcon';
 
 const Tabs = createBottomTabNavigator();
 
@@ -36,25 +37,27 @@ export default ({navigation, route}: any) => {
           } else if (route.name === 'User') {
             iconName += 'user';
           }
-          return <View></View>; // 아이콘 만들어지면 수정해야 함.
-          /* <Icons
+          return (
+            <BottomIcon
               name={iconName}
-              color={focused ? 'white' : 'grey'}
+              color={focused ? '#f4d53f' : '#cac9ca'}
               size={26}
-            /> */
+            />
+          );
         },
       })}
+      initialRouteName={'Main'}
       tabBarOptions={{
-        //showLabel: false,
+        showLabel: false,
         style: {
           borderTopColor: '#666666',
         },
       }}>
-      <Tabs.Screen name="Main" component={MainScreen} />
       <Tabs.Screen name="Search" component={SearchScreen} />
       <Tabs.Screen name="Random" component={RandomScreen} />
-      <Tabs.Screen name="Basket" component={BasketScreen} />
+      <Tabs.Screen name="Main" component={MainScreen} />
       <Tabs.Screen name="User" component={UserScreen} />
+      <Tabs.Screen name="Basket" component={BasketScreen} />
     </Tabs.Navigator>
   );
 };

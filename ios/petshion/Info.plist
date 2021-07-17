@@ -47,6 +47,7 @@
 		<string>Fonts/NanumSquareRoundEB.ttf</string>
 		<string>Fonts/NanumSquareRoundL.ttf</string>
 		<string>Fonts/NanumSquareRoundR.ttf</string>
+		<string>Fonts/icomoon.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
