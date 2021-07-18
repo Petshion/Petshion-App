@@ -1,11 +1,23 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import styled from 'styled-components/native';
+
+import List from '../../components/Main/List';
+
+const ScrollView = styled.ScrollView`
+  background-color: #fff;
+`;
+
+const styles = {
+  paddingHorizontal: 20,
+};
 
 function MainScreen() {
   return (
-    <View>
-      <Text>MainScreen</Text>
-    </View>
+    <ScrollView>
+      <List />
+      <List />
+      <List />
+    </ScrollView>
   );
 }
 

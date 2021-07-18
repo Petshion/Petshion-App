@@ -10,7 +10,7 @@ export default () => (
   <Stack.Navigator
     screenOptions={{
       headerStyle: {
-        shadowColor: '#666666',
+        shadowColor: '#cac9ca',
       },
 
       headerBackTitleVisible: false,

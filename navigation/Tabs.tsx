@@ -6,7 +6,7 @@ import RandomScreen from '../screens/servise/RandomScreen';
 import MainScreen from '../screens/servise/MainScreen';
 import UserScreen from '../screens/servise/UserScreen';
 import BasketScreen from '../screens/servise/BasketScreen';
-import BottomIcon from '../components/BottomIcon';
+import Icon from '../components/Icon';
 
 const Tabs = createBottomTabNavigator();
 
@@ -38,7 +38,7 @@ export default ({navigation, route}: any) => {
             iconName += 'user';
           }
           return (
-            <BottomIcon
+            <Icon
               name={iconName}
               color={focused ? '#f4d53f' : '#cac9ca'}
               size={26}
@@ -50,7 +50,7 @@ export default ({navigation, route}: any) => {
       tabBarOptions={{
         showLabel: false,
         style: {
-          borderTopColor: '#666666',
+          borderTopColor: '#cac9ca',
         },
       }}>
       <Tabs.Screen name="Search" component={SearchScreen} />
