@@ -1,11 +1,11 @@
 import React, {useLayoutEffect} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import SearchScreen from '../screens/servise/SearchScreen';
-import RandomScreen from '../screens/servise/RandomScreen';
-import MainScreen from '../screens/servise/MainScreen';
-import UserScreen from '../screens/servise/UserScreen';
-import BasketScreen from '../screens/servise/BasketScreen';
+import SearchScreen from '../screens/servise/Search';
+import RandomScreen from '../screens/servise/Random';
+import MainScreen from '../screens/servise/Main';
+import UserScreen from '../screens/servise/User';
+import BasketScreen from '../screens/servise/Basket';
 import Icon from '../components/Icon';
 
 const Tabs = createBottomTabNavigator();

@@ -25,6 +25,7 @@ const ImageWrap = styled.View`
 const Image = styled.Image`
   width: 100px;
   height: 100px;
+  overflow: visible;
 `;
 
 const PriceWrap = styled.View`
@@ -67,12 +68,14 @@ const List = ({image, price}: any) => {
       <ImageWrap>
         <Image
           source={{
-            uri: 'https://reactnative.dev/img/tiny_logo.png',
+            uri: image,
           }}
         />
       </ImageWrap>
       <PriceWrap>
-        <Price>₩ {'1,000,000'}</Price>
+        <Price>
+          ₩ {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+        </Price>
         <IconWrap>
           <Button>
             <Icon name={'share'} size={20} />
