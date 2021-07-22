@@ -1,10 +1,17 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import styled from 'styled-components/native';
 
-export default () => {
+import SnapCarousel from '../../../components/Random/SnapCarousel';
+
+const View = styled.View`
+  flex: 1;
+  background-color: #fff;
+`;
+
+export default ({randomItems}: any) => {
   return (
     <View>
-      <Text>Random</Text>
+      <SnapCarousel randomItems={randomItems} />
     </View>
   );
 };
