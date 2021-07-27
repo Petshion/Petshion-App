@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import Tabs from './Tabs';
 import HeaderTitle from '../components/HeaderTitle';
+import ProductScreen from '../screens/details/Product';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,15 @@ export default () => (
         headerTitle: props => <HeaderTitle />,
       }}
     />
-    {/* <Stack.Screen name="Detail" component={Detail} /> */}
+    <Stack.Screen
+      name="Detail"
+      component={ProductScreen}
+      options={{
+        headerTitle: '',
+        headerShown: true,
+        headerTransparent: true,
+        headerTintColor: '#fff',
+      }}
+    />
   </Stack.Navigator>
 );

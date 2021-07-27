@@ -1,12 +1,13 @@
 import React from 'react';
 import {Dimensions} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import styled from 'styled-components/native';
 
 import PriceTag from '../PriceTag';
 
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 
-const ListWrap = styled.View`
+const ListWrap = styled.TouchableOpacity`
   width: ${WIDTH / 1.1}px;
   height: ${WIDTH / 1.1}px;
   margin: 20px auto ${WIDTH / 4 / 2}px auto;
@@ -34,8 +35,12 @@ const ListPriceTag = styled(PriceTag)`
 `;
 
 const List = ({image, price}: any) => {
+  const navigation = useNavigation();
+  const goToDetail = () => {
+    navigation.navigate('Detail');
+  };
   return (
-    <ListWrap>
+    <ListWrap onPress={goToDetail}>
       <ImageWrap>
         <Image
           source={{

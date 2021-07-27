@@ -2,6 +2,7 @@ import React, {useState, useCallback, useRef} from 'react';
 import {SafeAreaView, Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 import Carousel from 'react-native-snap-carousel';
+import ImageColors from 'react-native-image-colors';
 
 import PriceTag from '../PriceTag';
 

@@ -2,6 +2,7 @@ import React from 'react';
 import {Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 
+import Price from './Price';
 import Icon from './Icon';
 
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
@@ -19,17 +20,6 @@ const PriceWrap = styled.View`
   background-color: #ffffff;
 `;
 
-const Price = styled.Text`
-  font-family: NanumSquare;
-  font-size: 20px;
-  font-weight: bold;
-  font-style: normal;
-  line-height: 0;
-  letter-spacing: 0;
-  text-align: left;
-  color: #000000;
-`;
-
 const IconWrap = styled.View`
   width: 60px;
   flex-direction: row;
@@ -41,7 +31,7 @@ const Button = styled.TouchableOpacity``;
 export default ({price}: any) => {
   return (
     <PriceWrap>
-      <Price>₩ {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</Price>
+      <Price price={price} size={20} />
       <IconWrap>
         <Button>
           <Icon name={'share'} size={20} />

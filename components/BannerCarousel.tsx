@@ -3,17 +3,14 @@ import Swiper from 'react-native-web-swiper';
 import styled from 'styled-components/native';
 import {Dimensions} from 'react-native';
 
-import RenderItem from '../RenderItem';
+import RenderItem from './RenderItem';
 
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 
 const CarouselWrap = styled.View`
-  width: ${WIDTH / 1.1}px;
-  height: ${WIDTH / 1.1}px;
-  margin: 20px auto 0 auto;
+  margin: 0 auto;
   background-color: #a5a3a3;
   justify-content: center;
-  border-radius: 20px;
   overflow: hidden;
 `;
 
@@ -23,10 +20,16 @@ const images = [
   'https://i.ibb.co/qJfb6K3/3.png',
 ];
 
-export default (/* {images}: any */) => {
+export default ({/* images, */ width, height, marginTop, radius}: any) => {
   // 통신 후 가져오기
   return (
-    <CarouselWrap>
+    <CarouselWrap
+      style={{
+        width: width,
+        height: height,
+        marginTop: marginTop,
+        borderRadius: radius,
+      }}>
       <Swiper
         loop
         timeout={5}
