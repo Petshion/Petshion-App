@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, Dimensions, StatusBar} from 'react-native';
+import {Dimensions, StatusBar} from 'react-native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import styled from 'styled-components/native';
 
@@ -23,7 +23,7 @@ const TabWrap = styled.View`
 `;
 
 const Info = styled.View`
-  padding: 33px;
+  padding: 20px;
 `;
 
 const ProductName = styled.Text`
@@ -36,8 +36,6 @@ const Review = styled.View`
   margin-bottom: 10px;
   align-self: flex-start;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
 `;
 
 const ReviewText = styled.Text`
@@ -47,16 +45,22 @@ const ReviewText = styled.Text`
   color: #7e7e7e;
 `;
 
-const BottomButtons = styled.View`
+const BottomButtonsWrap = styled.SafeAreaView`
   width: 100%;
   height: 100px;
-  padding: 10px 33px 0 33px;
   position: absolute;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   bottom: 0px;
   border: solid 1px #cac9ca;
   background-color: #fff;
+`;
+
+const BottomButtons = styled.View`
+  width: 100%;
+  padding: 0 20px;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 
 const IconWrap = styled.View`
@@ -114,19 +118,21 @@ export default () => {
           </Tab.Navigator>
         </TabWrap>
       </ProductWrap>
-      <BottomButtons>
-        <IconWrap>
-          <Button>
-            <Icon name={'ar'} color={'#cbc9ca'} size={35} />
+      <BottomButtonsWrap>
+        <BottomButtons>
+          <IconWrap>
+            <Button>
+              <Icon name={'ar'} color={'#cbc9ca'} size={35} />
+            </Button>
+            <Button>
+              <Icon name={'share'} color={'#cbc9ca'} size={35} />
+            </Button>
+          </IconWrap>
+          <Button onPress={() => console.log('구매로 이동')}>
+            <ButtonText>구매하기</ButtonText>
           </Button>
-          <Button>
-            <Icon name={'share'} color={'#cbc9ca'} size={35} />
-          </Button>
-        </IconWrap>
-        <Button onPress={() => console.log('구매로 이동')}>
-          <ButtonText>구매하기</ButtonText>
-        </Button>
-      </BottomButtons>
+        </BottomButtons>
+      </BottomButtonsWrap>
     </>
   );
 };
