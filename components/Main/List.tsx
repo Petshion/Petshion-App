@@ -5,6 +5,11 @@ import styled from 'styled-components/native';
 
 import PriceTag from '../PriceTag';
 
+interface Item {
+  image: string;
+  price: number;
+}
+
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 
 const ListWrap = styled.TouchableOpacity`
@@ -24,8 +29,8 @@ const ImageWrap = styled.View`
 `;
 
 const Image = styled.Image`
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   overflow: visible;
 `;
 
@@ -34,7 +39,7 @@ const ListPriceTag = styled(PriceTag)`
   bottom: -${WIDTH / 4 / 2}px;
 `;
 
-const List = ({image, price}: any) => {
+const List = ({image, price}: Item) => {
   const navigation = useNavigation();
   const goToDetail = () => {
     navigation.navigate('Detail');

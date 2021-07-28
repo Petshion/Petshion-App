@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 
 import MainPresenter from './MainPresenter';
 
-import test from '../../../testItem/test.json';
+import {items} from '../../../testItem/dummy';
 import {mainApi} from '../../../api';
 
 export default () => {
@@ -28,5 +28,5 @@ export default () => {
   useEffect(() => {
     getData();
   }, []); */
-  return <MainPresenter list={test} />;
+  return <MainPresenter items={items} />;
 };

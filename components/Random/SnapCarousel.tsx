@@ -2,22 +2,17 @@ import React, {useState, useCallback, useRef} from 'react';
 import {SafeAreaView, Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 import Carousel from 'react-native-snap-carousel';
-import ImageColors from 'react-native-image-colors';
+// import ImageColors from 'react-native-image-colors';
 
+import {Item} from '../../testItem/dummy';
 import PriceTag from '../PriceTag';
 
-interface ItemProps {
-  product_id: number;
-  title: string;
-  image: string;
-  price: number;
+interface ListProps {
+  items: Item[];
 }
 
-interface CustomCarouselProps {
-  item: ItemProps;
-}
 interface RenderItemProps {
-  item: ItemProps;
+  item: Item;
   index: number;
 }
 
@@ -54,9 +49,9 @@ const PriceTagWrap = styled.View`
 
 const SnapPriceTag = styled(PriceTag)``;
 
-const SnapCarousel = ({randomItems}: any) => {
+const SnapCarousel = ({items}: ListProps) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [carouselItems, setCarouselItems] = useState<ItemProps[]>(randomItems);
+  const [carouselItems, setCarouselItems] = useState<Item[]>(items);
   const ref = useRef(null);
 
   const renderItem = useCallback(({item, index}: RenderItemProps) => {

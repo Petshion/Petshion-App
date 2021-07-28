@@ -47,7 +47,7 @@ const ReviewText = styled.Text`
 
 const BottomButtonsWrap = styled.SafeAreaView`
   width: 100%;
-  height: 100px;
+  height: ${HEIGHT / 9}px;
   position: absolute;
   justify-content: center;
   align-items: center;

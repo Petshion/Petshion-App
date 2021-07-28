@@ -5,6 +5,10 @@ import styled from 'styled-components/native';
 import Price from './Price';
 import Icon from './Icon';
 
+interface Price {
+  price: number;
+}
+
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 
 const PriceWrap = styled.View`
@@ -21,23 +25,19 @@ const PriceWrap = styled.View`
 `;
 
 const IconWrap = styled.View`
-  width: 60px;
   flex-direction: row;
   justify-content: space-between;
 `;
 
 const Button = styled.TouchableOpacity``;
 
-export default ({price}: any) => {
+export default ({price}: Price) => {
   return (
     <PriceWrap>
       <Price price={price} size={20} />
       <IconWrap>
         <Button>
           <Icon name={'share'} size={20} />
-        </Button>
-        <Button>
-          <Icon name={'foot'} size={20} />
         </Button>
       </IconWrap>
     </PriceWrap>

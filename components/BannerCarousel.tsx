@@ -5,6 +5,13 @@ import {Dimensions} from 'react-native';
 
 import RenderItem from './RenderItem';
 
+interface CarouselItem {
+  width: number;
+  height: number;
+  marginTop: number;
+  radius: number;
+}
+
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 
 const CarouselWrap = styled.View`
@@ -20,7 +27,7 @@ const images = [
   'https://i.ibb.co/qJfb6K3/3.png',
 ];
 
-export default ({/* images, */ width, height, marginTop, radius}: any) => {
+export default ({width, height, marginTop, radius}: CarouselItem) => {
   // 통신 후 가져오기
   return (
     <CarouselWrap
@@ -41,7 +48,9 @@ export default ({/* images, */ width, height, marginTop, radius}: any) => {
           dotActiveStyle: {backgroundColor: '#fff'},
           dotProps: {badgeStyle: {backgroundColor: '#c4c4c4'}},
         }}>
-        {images.map((image: any, index: any) => RenderItem(image, index))}
+        {images.map((image: string, index) => (
+          <RenderItem key={index} image={image} />
+        ))}
       </Swiper>
     </CarouselWrap>
   );

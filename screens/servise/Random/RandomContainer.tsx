@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 
 import RandomPresenter from './RandomPresenter';
 
-import test from '../../../testItem/test.json';
+import {items} from '../../../testItem/dummy';
 
 export default () => {
-  return <RandomPresenter randomItems={test} />;
+  return <RandomPresenter items={items} />;
 };

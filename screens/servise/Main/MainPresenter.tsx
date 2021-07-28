@@ -1,9 +1,14 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 
+import {Item} from '../../../testItem/dummy';
 import List from '../../../components/Main/List';
 import BannerCarousel from '../../../components/BannerCarousel';
+
+interface ListProps {
+  items: Item[];
+}
 
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 
@@ -11,7 +16,7 @@ const ScrollView = styled.ScrollView`
   background-color: #fff;
 `;
 
-export default ({list}: any) => {
+export default ({items}: ListProps) => {
   return (
     <ScrollView>
       <BannerCarousel
@@ -20,8 +25,8 @@ export default ({list}: any) => {
         marginTop={20}
         radius={20}
       />
-      {list.map((list: any, index: number) => (
-        <List key={index} image={list.image} price={list.price} />
+      {items.map((item: Item, index) => (
+        <List key={index} image={item.image} price={item.price} />
       ))}
     </ScrollView>
   );
