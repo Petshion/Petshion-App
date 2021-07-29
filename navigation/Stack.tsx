@@ -20,7 +20,7 @@ export default () => (
       name="Tabs"
       component={Tabs}
       options={{
-        headerTitle: props => <HeaderTitle />,
+        headerShown: false,
       }}
     />
     <Stack.Screen

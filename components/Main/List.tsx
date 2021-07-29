@@ -13,30 +13,24 @@ interface Item {
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 
 const ListWrap = styled.TouchableOpacity`
-  width: ${WIDTH / 1.1}px;
-  height: ${WIDTH / 1.1}px;
-  margin: 20px auto ${WIDTH / 4 / 2}px auto;
+  width: ${WIDTH / 2.3}px;
+  height: ${WIDTH / 1.5}px;
+  overflow: hidden;
+  margin-bottom: 20px;
   border-radius: 20px;
-  box-shadow: 0 14px 20px rgba(0, 0, 0, 0.16);
-  background-color: #f7f7f7;
+  background-color: #c4c4c4;
 `;
 
 const ImageWrap = styled.View`
   width: 100%;
-  height: ${WIDTH / 1.1 - WIDTH / 4 / 2}px;
+  height: 100%;
   align-items: center;
   justify-content: center;
 `;
 
 const Image = styled.Image`
-  width: 150px;
-  height: 150px;
-  overflow: visible;
-`;
-
-const ListPriceTag = styled(PriceTag)`
-  position: absolute;
-  bottom: -${WIDTH / 4 / 2}px;
+  width: 100%;
+  height: 100%;
 `;
 
 const List = ({image, price}: Item) => {
@@ -53,7 +47,6 @@ const List = ({image, price}: Item) => {
           }}
         />
       </ImageWrap>
-      <ListPriceTag price={price} />
     </ListWrap>
   );
 };

@@ -13,21 +13,30 @@ interface ListProps {
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 
 const ScrollView = styled.ScrollView`
+  padding-top: ${HEIGHT / 15}px;
   background-color: #fff;
+`;
+
+const SafeAreaView = styled.SafeAreaView``;
+
+const RowView = styled.View`
+  width: 100%;
+  padding: 0 20px;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 export default ({items}: ListProps) => {
   return (
     <ScrollView>
-      <BannerCarousel
-        width={WIDTH / 1.1}
-        height={WIDTH / 1.1}
-        marginTop={20}
-        radius={20}
-      />
-      {items.map((item: Item, index) => (
-        <List key={index} image={item.image} price={item.price} />
-      ))}
+      <SafeAreaView>
+        <RowView>
+          {items.map((item: Item, index) => (
+            <List key={index} image={item.image} price={item.price} />
+          ))}
+        </RowView>
+      </SafeAreaView>
     </ScrollView>
   );
 };

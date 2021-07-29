@@ -1,11 +1,10 @@
 import React, {useLayoutEffect} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import SearchScreen from '../screens/servise/Search';
-import RandomScreen from '../screens/servise/Random';
 import MainScreen from '../screens/servise/Main';
-import UserScreen from '../screens/servise/User';
 import BasketScreen from '../screens/servise/Basket';
+import PickUpScreen from '../screens/servise/PickUp';
+import UserScreen from '../screens/servise/User';
 import Icon from '../components/Icon';
 
 const Tabs = createBottomTabNavigator();
@@ -28,12 +27,10 @@ export default ({navigation, route}: any) => {
           let iconName = '';
           if (route.name === 'Main') {
             iconName += 'main';
-          } else if (route.name === 'Search') {
-            iconName += 'search';
-          } else if (route.name === 'Random') {
-            iconName += 'random';
           } else if (route.name === 'Basket') {
             iconName += 'basket';
+          } else if (route.name === 'PickUp') {
+            iconName += 'pickup';
           } else if (route.name === 'User') {
             iconName += 'user';
           }
@@ -53,11 +50,10 @@ export default ({navigation, route}: any) => {
           borderTopColor: '#cac9ca',
         },
       }}>
-      <Tabs.Screen name="Search" component={SearchScreen} />
-      <Tabs.Screen name="Random" component={RandomScreen} />
       <Tabs.Screen name="Main" component={MainScreen} />
-      <Tabs.Screen name="User" component={UserScreen} />
       <Tabs.Screen name="Basket" component={BasketScreen} />
+      <Tabs.Screen name="PickUp" component={PickUpScreen} />
+      <Tabs.Screen name="User" component={UserScreen} />
     </Tabs.Navigator>
   );
 };

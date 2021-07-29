@@ -8,8 +8,8 @@ import RenderItem from './RenderItem';
 interface CarouselItem {
   width: number;
   height: number;
-  marginTop: number;
-  radius: number;
+  marginTop?: number;
+  radius?: number;
 }
 
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
