@@ -31,11 +31,11 @@ const Shion = styled.Text`
   color: #606161;
 `;
 
-const HeaderTitle = () => (
+const PetshionTitle = () => (
   <HeaderTitleWrap>
     <Pet>PET</Pet>
     <Shion>SHION</Shion>
   </HeaderTitleWrap>
 );
 
-export default HeaderTitle;
+export default PetshionTitle;

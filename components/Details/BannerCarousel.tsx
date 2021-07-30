@@ -3,7 +3,7 @@ import Swiper from 'react-native-web-swiper';
 import styled from 'styled-components/native';
 import {Dimensions} from 'react-native';
 
-import RenderItem from './RenderItem';
+import RenderItem from '../RenderItem';
 
 interface CarouselItem {
   width: number;

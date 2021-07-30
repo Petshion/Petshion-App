@@ -3,7 +3,7 @@ import {Dimensions, StatusBar} from 'react-native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import styled from 'styled-components/native';
 
-import BannerCarousel from '../../../components/BannerCarousel';
+import BannerCarousel from '../../../components/Details/BannerCarousel';
 import DescriptionTab from '../../../components/Details/DescriptionTab';
 import SizeTab from '../../../components/Details/SizeTab';
 import Price from '../../../components/Price';
@@ -45,15 +45,13 @@ const IconWrap = styled.View`
 `;
 
 const Review = styled.View`
-  margin-bottom: 10px;
+  margin-top: 10px;
   align-self: flex-start;
-  flex-direction: row;
 `;
 
 const ReviewText = styled.Text`
-  margin-left: 10px;
   text-decoration: underline #7e7e7e;
-  font-size: 15px;
+  font-size: 13px;
   color: #7e7e7e;
 `;
 
@@ -93,13 +91,13 @@ export default () => {
               </Button>
             </IconWrap>
           </FirstLine>
+          <Price price={1234} size={18} />
           <Review>
             <ReviewRating />
             <Button>
               <ReviewText>000개 리뷰 보기</ReviewText>
             </Button>
           </Review>
-          <Price price={1234} size={18} />
         </Info>
         <TabWrap>
           <Tab.Navigator

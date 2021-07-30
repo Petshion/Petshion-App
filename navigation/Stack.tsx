@@ -2,7 +2,6 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Tabs from './Tabs';
-import HeaderTitle from '../components/HeaderTitle';
 import ProductScreen from '../screens/details/Product';
 
 const Stack = createStackNavigator();
