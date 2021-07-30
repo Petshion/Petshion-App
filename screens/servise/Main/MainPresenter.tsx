@@ -1,10 +1,9 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 
 import {Item} from '../../../testItem/dummy';
 import List from '../../../components/Main/List';
-import BannerCarousel from '../../../components/BannerCarousel';
 
 interface ListProps {
   items: Item[];
@@ -33,7 +32,7 @@ export default ({items}: ListProps) => {
       <SafeAreaView>
         <RowView>
           {items.map((item: Item, index) => (
-            <List key={index} image={item.image} price={item.price} />
+            <List key={index} image={item.image} />
           ))}
         </RowView>
       </SafeAreaView>

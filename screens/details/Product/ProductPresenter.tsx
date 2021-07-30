@@ -26,10 +26,22 @@ const Info = styled.View`
   padding: 20px;
 `;
 
-const ProductName = styled.Text`
+const FirstLine = styled.View`
+  flex-direction: row;
   margin-bottom: 10px;
+`;
+
+const ProductName = styled.Text`
+  flex: 1;
+  align-self: flex-start;
   font-size: 22px;
   font-weight: bold;
+`;
+
+const IconWrap = styled.View`
+  width: 65px;
+  justify-content: space-between;
+  flex-direction: row;
 `;
 
 const Review = styled.View`
@@ -52,21 +64,7 @@ const BottomButtonsWrap = styled.SafeAreaView`
   justify-content: center;
   align-items: center;
   bottom: 0px;
-  border: solid 1px #cac9ca;
-  background-color: #fff;
-`;
-
-const BottomButtons = styled.View`
-  width: 100%;
-  padding: 0 20px;
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
-const IconWrap = styled.View`
-  width: 90px;
-  flex-direction: row;
-  justify-content: space-between;
+  background-color: #efde5a;
 `;
 
 const Button = styled.TouchableOpacity``;
@@ -74,7 +72,7 @@ const Button = styled.TouchableOpacity``;
 const ButtonText = styled.Text`
   font-size: 35px;
   font-weight: bold;
-  color: #f4d540;
+  color: #a1a1a1;
 `;
 
 export default () => {
@@ -84,7 +82,17 @@ export default () => {
       <ProductWrap>
         <BannerCarousel width={WIDTH} height={WIDTH / 0.8} />
         <Info>
-          <ProductName>상품명</ProductName>
+          <FirstLine>
+            <ProductName>아라아라아라아라</ProductName>
+            <IconWrap>
+              <Button>
+                <Icon custom name={'ar'} color={'#cbc9ca'} size={24} />
+              </Button>
+              <Button>
+                <Icon custom name={'share'} color={'#cbc9ca'} size={24} />
+              </Button>
+            </IconWrap>
+          </FirstLine>
           <Review>
             <ReviewRating />
             <Button>
@@ -118,21 +126,11 @@ export default () => {
           </Tab.Navigator>
         </TabWrap>
       </ProductWrap>
-      <BottomButtonsWrap>
-        <BottomButtons>
-          <IconWrap>
-            <Button>
-              <Icon custom name={'ar'} color={'#cbc9ca'} size={35} />
-            </Button>
-            <Button>
-              <Icon custom name={'share'} color={'#cbc9ca'} size={35} />
-            </Button>
-          </IconWrap>
-          <Button onPress={() => console.log('구매로 이동')}>
-            <ButtonText>구매하기</ButtonText>
-          </Button>
-        </BottomButtons>
-      </BottomButtonsWrap>
+      <Button onPress={() => console.log('구매로 이동')}>
+        <BottomButtonsWrap>
+          <ButtonText>주문하기</ButtonText>
+        </BottomButtonsWrap>
+      </Button>
     </>
   );
 };

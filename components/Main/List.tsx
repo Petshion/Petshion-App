@@ -1,13 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Dimensions} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import styled from 'styled-components/native';
-
-import PriceTag from '../PriceTag';
+import Icon from '../../components/Icon';
 
 interface Item {
   image: string;
-  price: number;
 }
 
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
@@ -33,7 +31,22 @@ const Image = styled.Image`
   height: 100%;
 `;
 
-const List = ({image, price}: Item) => {
+const IconWrap = styled.View`
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 20px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+`;
+
+const IconButton = styled.TouchableOpacity``;
+
+const List = ({image}: Item) => {
+  const [select, setSelect] = useState(false);
   const navigation = useNavigation();
   const goToDetail = () => {
     navigation.navigate('Detail');
@@ -47,6 +60,11 @@ const List = ({image, price}: Item) => {
           }}
         />
       </ImageWrap>
+      <IconWrap>
+        <IconButton onPress={() => setSelect(!select)}>
+          <Icon name="pets" color={select ? '#f4d540' : '#cbc9ca'} size={26} />
+        </IconButton>
+      </IconWrap>
     </ListWrap>
   );
 };
