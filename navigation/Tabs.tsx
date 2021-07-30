@@ -26,19 +26,19 @@ export default ({navigation, route}: any) => {
         tabBarIcon: ({focused}) => {
           let iconName = '';
           if (route.name === 'Main') {
-            iconName += 'main';
+            iconName += 'home';
           } else if (route.name === 'Basket') {
-            iconName += 'basket';
+            iconName += 'shopping-bag';
           } else if (route.name === 'PickUp') {
-            iconName += 'pickup';
+            iconName += 'pets';
           } else if (route.name === 'User') {
-            iconName += 'user';
+            iconName += 'person';
           }
           return (
             <Icon
               name={iconName}
               color={focused ? '#f4d53f' : '#cac9ca'}
-              size={26}
+              size={30}
             />
           );
         },

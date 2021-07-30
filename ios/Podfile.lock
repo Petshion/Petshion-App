@@ -485,7 +485,7 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: cf9b38bf0b2d048436d9a82ad2abe1404f11e7de
   FBLazyVector: e686045572151edef46010a6f819ade377dfeb4b
-  FBReactNativeSpec: 87287232b3c15d48bc1a835b40791848170e52dc
+  FBReactNativeSpec: e0578c28dab96e56ff2d4e4f08bee5e7bb624bcd
   Flipper: d3da1aa199aad94455ae725e9f3aa43f3ec17021
   Flipper-DoubleConversion: 38631e41ef4f9b12861c67d17cb5518d06badc41
   Flipper-Folly: 755929a4f851b2fb2c347d533a23f191b008554c
@@ -531,4 +531,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: a86ceed4ddbbd2736780b7a101cb790bff441fb3
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.10.2

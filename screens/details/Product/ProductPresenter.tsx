@@ -122,10 +122,10 @@ export default () => {
         <BottomButtons>
           <IconWrap>
             <Button>
-              <Icon name={'ar'} color={'#cbc9ca'} size={35} />
+              <Icon custom name={'ar'} color={'#cbc9ca'} size={35} />
             </Button>
             <Button>
-              <Icon name={'share'} color={'#cbc9ca'} size={35} />
+              <Icon custom name={'share'} color={'#cbc9ca'} size={35} />
             </Button>
           </IconWrap>
           <Button onPress={() => console.log('구매로 이동')}>
