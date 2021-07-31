@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 interface Price {
   price: number;
   size: number;
+  color?: string;
 }
 
 const Price = styled.Text`
@@ -16,9 +17,9 @@ const Price = styled.Text`
   color: #000000;
 `;
 
-export default ({price, size}: Price) => {
+export default ({price, size, color}: Price) => {
   return (
-    <Price style={{fontSize: size}}>
+    <Price style={{fontSize: size, color: color}}>
       ₩ {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
     </Price>
   );

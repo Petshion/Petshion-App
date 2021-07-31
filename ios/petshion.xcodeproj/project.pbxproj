@@ -12,9 +12,9 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		512F21BA26A29FEA000B6F2B /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 512F21B926A29FEA000B6F2B /* Fonts */; };
-		71A9652B24087FF6F26AAAB3 /* libPods-petshion-petshionTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C5FB74F4A07D84270682FE /* libPods-petshion-petshionTests.a */; };
-		7F946A11ECE1EAB32E3E1C9B /* libPods-petshion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F62FB7421A8B86AA435793 /* libPods-petshion.a */; };
+		5941B3CD88D7824CAEE6F6E4 /* libPods-petshion-petshionTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41292EBA3AA5089A87DBF9AD /* libPods-petshion-petshionTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		D222D8CBB86ECA3C66AF5B0C /* libPods-petshion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2D829C779BF3B4699E94F9 /* libPods-petshion.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,21 +31,21 @@
 		00E356EE1AD99517003FC87E /* petshionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = petshionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* petshionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = petshionTests.m; sourceTree = "<group>"; };
+		0AEEE61D9FBDDB11C785C35E /* Pods-petshion-petshionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petshion-petshionTests.release.xcconfig"; path = "Target Support Files/Pods-petshion-petshionTests/Pods-petshion-petshionTests.release.xcconfig"; sourceTree = "<group>"; };
+		0D2D829C779BF3B4699E94F9 /* libPods-petshion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-petshion.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* petshion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = petshion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = petshion/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = petshion/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = petshion/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = petshion/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = petshion/main.m; sourceTree = "<group>"; };
-		158B7FD25F2184D8E2E46580 /* Pods-petshion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petshion.release.xcconfig"; path = "Target Support Files/Pods-petshion/Pods-petshion.release.xcconfig"; sourceTree = "<group>"; };
-		17C5FB74F4A07D84270682FE /* libPods-petshion-petshionTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-petshion-petshionTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		17F62FB7421A8B86AA435793 /* libPods-petshion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-petshion.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		30298086D281D40435077623 /* Pods-petshion-petshionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petshion-petshionTests.debug.xcconfig"; path = "Target Support Files/Pods-petshion-petshionTests/Pods-petshion-petshionTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3D1ED4D79A573A141B854AF8 /* Pods-petshion-petshionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petshion-petshionTests.debug.xcconfig"; path = "Target Support Files/Pods-petshion-petshionTests/Pods-petshion-petshionTests.debug.xcconfig"; sourceTree = "<group>"; };
+		41292EBA3AA5089A87DBF9AD /* libPods-petshion-petshionTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-petshion-petshionTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		512F21B926A29FEA000B6F2B /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = petshion/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E9C6FECD877DEE1E5F57DF9F /* Pods-petshion-petshionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petshion-petshionTests.release.xcconfig"; path = "Target Support Files/Pods-petshion-petshionTests/Pods-petshion-petshionTests.release.xcconfig"; sourceTree = "<group>"; };
+		C1C602E2851FECA80142BF94 /* Pods-petshion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petshion.release.xcconfig"; path = "Target Support Files/Pods-petshion/Pods-petshion.release.xcconfig"; sourceTree = "<group>"; };
+		EC3B22B52ED9784F211D717C /* Pods-petshion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petshion.debug.xcconfig"; path = "Target Support Files/Pods-petshion/Pods-petshion.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F173F90CB2C6583DC2D4CA6B /* Pods-petshion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petshion.debug.xcconfig"; path = "Target Support Files/Pods-petshion/Pods-petshion.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71A9652B24087FF6F26AAAB3 /* libPods-petshion-petshionTests.a in Frameworks */,
+				5941B3CD88D7824CAEE6F6E4 /* libPods-petshion-petshionTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F946A11ECE1EAB32E3E1C9B /* libPods-petshion.a in Frameworks */,
+				D222D8CBB86ECA3C66AF5B0C /* libPods-petshion.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,8 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				17F62FB7421A8B86AA435793 /* libPods-petshion.a */,
-				17C5FB74F4A07D84270682FE /* libPods-petshion-petshionTests.a */,
+				0D2D829C779BF3B4699E94F9 /* libPods-petshion.a */,
+				41292EBA3AA5089A87DBF9AD /* libPods-petshion-petshionTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -111,10 +111,10 @@
 		3C5499688F7B5243C41BE2DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F173F90CB2C6583DC2D4CA6B /* Pods-petshion.debug.xcconfig */,
-				158B7FD25F2184D8E2E46580 /* Pods-petshion.release.xcconfig */,
-				30298086D281D40435077623 /* Pods-petshion-petshionTests.debug.xcconfig */,
-				E9C6FECD877DEE1E5F57DF9F /* Pods-petshion-petshionTests.release.xcconfig */,
+				EC3B22B52ED9784F211D717C /* Pods-petshion.debug.xcconfig */,
+				C1C602E2851FECA80142BF94 /* Pods-petshion.release.xcconfig */,
+				3D1ED4D79A573A141B854AF8 /* Pods-petshion-petshionTests.debug.xcconfig */,
+				0AEEE61D9FBDDB11C785C35E /* Pods-petshion-petshionTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -166,12 +166,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "petshionTests" */;
 			buildPhases = (
-				D33B3B030553D81E4A04BA1C /* [CP] Check Pods Manifest.lock */,
+				A431B4231800EE89FE281E0B /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				4B361640FE8976DE63B28C7E /* [CP] Embed Pods Frameworks */,
-				B5FD6A4A2A4AA1E31C411860 /* [CP] Copy Pods Resources */,
+				145DD861F907096633A10FF0 /* [CP] Embed Pods Frameworks */,
+				92709DB6386FF3BD76CE0794 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -187,14 +187,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "petshion" */;
 			buildPhases = (
-				39C9688B4FAFD72D066CCC7A /* [CP] Check Pods Manifest.lock */,
+				1F3DCF9365E59AD3326B9573 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				EF40614979A0B16E52AEA8BE /* [CP] Embed Pods Frameworks */,
-				3E4024A461724A31609226AF /* [CP] Copy Pods Resources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
+				EE2A265242EFA10451A27B73 /* [CP] Embed Pods Frameworks */,
+				173756AC43A213C6659B813A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -276,7 +276,41 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		39C9688B4FAFD72D066CCC7A /* [CP] Check Pods Manifest.lock */ = {
+		145DD861F907096633A10FF0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-petshion-petshionTests/Pods-petshion-petshionTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-petshion-petshionTests/Pods-petshion-petshionTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-petshion-petshionTests/Pods-petshion-petshionTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		173756AC43A213C6659B813A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-petshion/Pods-petshion-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-petshion/Pods-petshion-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-petshion/Pods-petshion-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1F3DCF9365E59AD3326B9573 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -298,41 +332,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3E4024A461724A31609226AF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-petshion/Pods-petshion-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-petshion/Pods-petshion-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-petshion/Pods-petshion-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4B361640FE8976DE63B28C7E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-petshion-petshionTests/Pods-petshion-petshionTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-petshion-petshionTests/Pods-petshion-petshionTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-petshion-petshionTests/Pods-petshion-petshionTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B5FD6A4A2A4AA1E31C411860 /* [CP] Copy Pods Resources */ = {
+		92709DB6386FF3BD76CE0794 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -349,7 +349,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-petshion-petshionTests/Pods-petshion-petshionTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D33B3B030553D81E4A04BA1C /* [CP] Check Pods Manifest.lock */ = {
+		A431B4231800EE89FE281E0B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -371,9 +371,9 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EF40614979A0B16E52AEA8BE /* [CP] Embed Pods Frameworks */ = {
+		EE2A265242EFA10451A27B73 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -440,10 +440,11 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30298086D281D40435077623 /* Pods-petshion-petshionTests.debug.xcconfig */;
+			baseConfigurationReference = 3D1ED4D79A573A141B854AF8 /* Pods-petshion-petshionTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 465736E776;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -468,11 +469,12 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E9C6FECD877DEE1E5F57DF9F /* Pods-petshion-petshionTests.release.xcconfig */;
+			baseConfigurationReference = 0AEEE61D9FBDDB11C785C35E /* Pods-petshion-petshionTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 465736E776;
 				INFOPLIST_FILE = petshionTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -493,7 +495,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F173F90CB2C6583DC2D4CA6B /* Pods-petshion.debug.xcconfig */;
+			baseConfigurationReference = EC3B22B52ED9784F211D717C /* Pods-petshion.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -521,7 +523,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 158B7FD25F2184D8E2E46580 /* Pods-petshion.release.xcconfig */;
+			baseConfigurationReference = C1C602E2851FECA80142BF94 /* Pods-petshion.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

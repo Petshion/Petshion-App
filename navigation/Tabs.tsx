@@ -43,7 +43,7 @@ export default ({navigation, route}: any) => {
           );
         },
       })}
-      initialRouteName={'Main'}
+      initialRouteName={'Basket'}
       tabBarOptions={{
         showLabel: false,
         style: {
