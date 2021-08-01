@@ -12,11 +12,13 @@ interface ListProps {
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 
 const ScrollView = styled.ScrollView`
-  padding-top: ${HEIGHT / 15}px;
+  flex: 1;
   background-color: #fff;
 `;
 
-const SafeAreaView = styled.SafeAreaView``;
+const RowWrap = styled.View`
+  padding-top: ${HEIGHT / 15}px;
+`;
 
 const RowView = styled.View`
   width: 100%;
@@ -29,13 +31,13 @@ const RowView = styled.View`
 export default ({items}: ListProps) => {
   return (
     <ScrollView>
-      <SafeAreaView>
+      <RowWrap>
         <RowView>
           {items.map((item: Item, index) => (
-            <List key={index} image={item.image} />
+            <List key={index} id={item.product_id} image={item.image} />
           ))}
         </RowView>
-      </SafeAreaView>
+      </RowWrap>
     </ScrollView>
   );
 };

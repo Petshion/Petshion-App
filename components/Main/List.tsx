@@ -5,6 +5,7 @@ import styled from 'styled-components/native';
 import Icon from '../../components/Icon';
 
 interface Item {
+  id?: string;
   image: string;
 }
 
@@ -45,12 +46,14 @@ const IconWrap = styled.View`
 
 const IconButton = styled.TouchableOpacity``;
 
-const List = ({image}: Item) => {
+const List = ({id, image}: Item) => {
   const [select, setSelect] = useState(false);
   const navigation = useNavigation();
+
   const goToDetail = () => {
-    navigation.navigate('Detail');
+    navigation.navigate('Detail', {id});
   };
+
   return (
     <ListWrap onPress={goToDetail}>
       <ImageWrap>
