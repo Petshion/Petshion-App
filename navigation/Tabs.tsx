@@ -42,14 +42,13 @@ export default ({navigation, route}: any) => {
             />
           );
         },
-      })}
-      initialRouteName={'Main'}
-      tabBarOptions={{
-        showLabel: false,
-        style: {
+        headerShown: false,
+        tabBarShowLabel: false,
+        tabBarStyle: {
           borderTopColor: '#cac9ca',
         },
-      }}>
+      })}
+      initialRouteName={'Main'}>
       <Tabs.Screen name="Main" component={MainScreen} />
       <Tabs.Screen name="Basket" component={BasketScreen} />
       <Tabs.Screen name="PickUp" component={PickUpScreen} />

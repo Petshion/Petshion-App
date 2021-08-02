@@ -1,5 +1,5 @@
 import React from 'react';
-import {Dimensions, StatusBar} from 'react-native';
+import {Dimensions, StatusBar, Text} from 'react-native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import styled from 'styled-components/native';
 
@@ -57,7 +57,7 @@ const ReviewText = styled.Text`
 
 const BottomButtonsWrap = styled.SafeAreaView`
   width: 100%;
-  height: ${HEIGHT / 9}px;
+  height: ${HEIGHT / 10}px;
   position: absolute;
   justify-content: center;
   align-items: center;
@@ -77,7 +77,8 @@ export default () => {
   return (
     <>
       <StatusBar barStyle="light-content" />
-      <ProductWrap>
+
+      <ProductWrap contentInsetAdjustmentBehavior={'never'}>
         <BannerCarousel width={WIDTH} height={WIDTH / 0.8} />
         <Info>
           <FirstLine>
@@ -102,11 +103,11 @@ export default () => {
         <TabWrap>
           <Tab.Navigator
             initialRouteName="Description"
-            tabBarOptions={{
-              labelStyle: {fontSize: 15},
-              inactiveTintColor: '#7e7e7e',
-              activeTintColor: '#f4d53f',
-              indicatorStyle: {
+            screenOptions={{
+              tabBarLabelStyle: {fontSize: 15},
+              tabBarInactiveTintColor: '#7e7e7e',
+              tabBarActiveTintColor: '#f4d53f',
+              tabBarIndicatorStyle: {
                 backgroundColor: '#f4d53f',
               },
             }}

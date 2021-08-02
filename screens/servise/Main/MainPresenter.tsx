@@ -30,7 +30,7 @@ const RowView = styled.View`
 
 export default ({items}: ListProps) => {
   return (
-    <ScrollView>
+    <ScrollView contentInsetAdjustmentBehavior={'never'}>
       <RowWrap>
         <RowView>
           {items.map((item: Item, index) => (
