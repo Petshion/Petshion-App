@@ -9,6 +9,12 @@ interface Item {
   image: string;
 }
 
+interface RootStackParamList {
+  navigate: any;
+  name: string[];
+  params: string;
+}
+
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 
 const ListWrap = styled.TouchableOpacity`
@@ -48,7 +54,7 @@ const IconButton = styled.TouchableOpacity``;
 
 const List = ({id, image}: Item) => {
   const [select, setSelect] = useState(false);
-  const navigation = useNavigation();
+  const navigation = useNavigation<RootStackParamList>();
 
   const goToDetail = () => {
     navigation.navigate('Detail', {id});

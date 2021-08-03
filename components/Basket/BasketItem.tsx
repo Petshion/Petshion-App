@@ -75,7 +75,14 @@ function BasketItem() {
         </LeftTextWrap>
       </ItemLeft>
       <ItemRight>
-        <Checkbox />
+        <Checkbox
+          name="check"
+          size={25}
+          iconSize={16}
+          fillColor="#efde5a"
+          unfillColor="#FFFFFF"
+          borderRadius={4}
+        />
         <Price price={12331} size={12} />
       </ItemRight>
     </ItemWrap>

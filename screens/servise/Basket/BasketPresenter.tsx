@@ -83,7 +83,14 @@ export default () => {
     <BasketWrap>
       <TopView>
         <AllCheck>
-          <Checkbox />
+          <Checkbox
+            name="check"
+            size={25}
+            iconSize={16}
+            fillColor="#efde5a"
+            unfillColor="#FFFFFF"
+            borderRadius={4}
+          />
           <AllCheckText>전체 선택</AllCheckText>
         </AllCheck>
         <DeleteButton onPress={() => console.log('선택 삭제')}>
