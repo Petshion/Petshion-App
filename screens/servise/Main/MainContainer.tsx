@@ -11,22 +11,25 @@ export interface Item {
 }
 
 export default () => {
-  const [shows, setShows] = useState({
+  const [products, setProducts] = useState({
     loading: true,
-    lately: [],
-    latelyError: null,
+    getProducts: [],
+    getProductsError: null,
   });
   const getData = async () => {
-    const [lately, latelyError] = await mainApi.lately();
-    setShows({
+    const [getProducts, getProductsError] = await mainApi.getProducts();
+    console.log(getProducts);
+    setProducts({
       loading: false,
-      lately,
-      latelyError,
+      getProducts,
+      getProductsError,
     });
   };
+
   useEffect(() => {
     getData();
-    console.log(shows);
+    console.log();
   }, []);
-  return <MainPresenter items={items} />;
+
+  return <MainPresenter items={products.getProducts} />;
 };

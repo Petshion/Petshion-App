@@ -7,51 +7,64 @@ import {
   Row,
   Rows,
   Col,
-  Cols,
-  Cell,
 } from 'react-native-table-component';
+
+interface SizeContent {
+  sizeContent: string[][];
+}
+
+interface TableItems {
+  tableHead: string[];
+  tableTitle: string[];
+  tableData: string[][];
+}
 
 const View = styled.View`
   flex: 1;
   background-color: #fff;
 `;
 
-export default () => {
-  const [tableItems, setTableItems] = useState({
-    tableHead: ['', 'S', 'M', 'L', 'XL', '2XL'],
-    tableTitle: ['목', '가슴', '길이'],
-    tableData: [
-      ['1', '2', '3', '4', '5'],
-      ['a', 'b', 'c', 'd', 'e'],
-      ['1', '2', '3', '4', '5'],
-    ],
-  });
-  return (
-    <View style={styles.container}>
-      <Table borderStyle={{borderWidth: 1}}>
-        <Row
-          data={tableItems.tableHead}
-          flexArr={[1, 1, 1, 1]}
-          style={styles.head}
-          textStyle={styles.text}
-        />
-        <TableWrapper style={styles.wrapper}>
-          <Col
-            data={tableItems.tableTitle}
-            style={styles.title}
-            heightArr={[28, 28]}
+export default ({sizeContent}: SizeContent) => {
+  const [tableItems, setTableItems] = useState<TableItems>();
+
+  useEffect(() => {
+    setTableItems({
+      tableHead: ['', 'S', 'M', 'L', 'XL', '2XL'],
+      tableTitle: ['목', '가슴', '길이'],
+      tableData: sizeContent,
+    });
+  }, [sizeContent]);
+
+  if (tableItems === undefined) {
+    return null;
+  } else {
+    return (
+      <View style={styles.container}>
+        <Table borderStyle={{borderWidth: 1}}>
+          <Row
+            data={tableItems.tableHead}
+            flexArr={[1, 1, 1, 1]}
+            style={styles.head}
             textStyle={styles.text}
           />
-          <Rows
-            data={tableItems.tableData}
-            flexArr={[1, 1, 1, 1, 1]}
-            style={styles.row}
-            textStyle={styles.text}
-          />
-        </TableWrapper>
-      </Table>
-    </View>
-  );
+          <TableWrapper style={styles.wrapper}>
+            <Col
+              data={tableItems.tableTitle}
+              style={styles.title}
+              heightArr={[28, 28]}
+              textStyle={styles.text}
+            />
+            <Rows
+              data={tableItems.tableData}
+              flexArr={[1, 1, 1, 1, 1]}
+              style={styles.row}
+              textStyle={styles.text}
+            />
+          </TableWrapper>
+        </Table>
+      </View>
+    );
+  }
 };
 
 const styles = StyleSheet.create({

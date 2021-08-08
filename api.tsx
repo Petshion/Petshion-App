@@ -1,11 +1,14 @@
 import axios from 'axios';
 
 const makeRequest = (path: any, params: any) =>
-  axios.get(`https://petshion.herokuapp.com${path}`, {
-    params: {
-      ...params,
+  axios.get(
+    `http://petshion-env-1.eba-pmq8y9je.ap-northeast-2.elasticbeanstalk.com${path}`,
+    {
+      params: {
+        ...params,
+      },
     },
-  });
+  );
 
 const getAnything = async (path: any, params = {}) => {
   try {
@@ -21,7 +24,7 @@ const getAnything = async (path: any, params = {}) => {
 };
 
 export const mainApi = {
-  lately: () => getAnything('/main'),
+  getProducts: () => getAnything('/main'),
   product: (id: any) => getAnything(`/product/${id}`),
   /* search: (query) => getAnything('/search/tv', { query }),
   show: (id) => getAnything(`/tv/${id}`, { append_to_response: 'videos' }), */

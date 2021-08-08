@@ -2,7 +2,7 @@ import React from 'react';
 import {createSwitchNavigator, createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 
-import MainScreen from '../screens/servise/MainScreen';
+import MainScreen from '../screens/servise/Main';
 import SignInScreen from '../screens/auth/SignInScreen';
 import AuthLoadingScreen from '../screens/auth/AuthLoadingScreen';
 

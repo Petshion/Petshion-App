@@ -8,10 +8,10 @@ interface Item {
   _id: string;
   title: string;
   brand_name: string;
-  preice: number;
+  price: number;
   kind: string;
   content: string;
-  size_content: string[];
+  size_content: string[][];
   size: string;
 }
 
@@ -32,7 +32,7 @@ export default ({
       _id: '',
       title: '',
       brand_name: '',
-      preice: 0,
+      price: 0,
       kind: '',
       content: '',
       size_content: [],
@@ -42,6 +42,7 @@ export default ({
   const getData = async () => {
     const [getDetail, getDetailError] = await mainApi.product(id);
     console.log(getDetailError);
+
     setDetail({
       loading: false,
       result: {
@@ -49,8 +50,8 @@ export default ({
         images: getDetail.images,
         _id: getDetail._id,
         title: getDetail.title,
-        brand_name: getDetail.brand_name,
-        preice: getDetail.preice,
+        brand_name: getDetail.Brand_name,
+        price: getDetail.price,
         kind: getDetail.kind,
         content: getDetail.content,
         size_content: getDetail.size_content,
@@ -59,8 +60,13 @@ export default ({
     });
   };
 
-  /*  useEffect(() => {
+  useEffect(() => {
     getData();
-  }, [id]); */
-  return <ProductPresenter />;
+  }, [id]);
+
+  if (detail.loading === true) {
+    return null;
+  } else {
+    return <ProductPresenter {...detail.result} />;
+  }
 };

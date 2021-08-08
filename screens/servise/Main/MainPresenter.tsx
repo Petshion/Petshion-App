@@ -1,5 +1,4 @@
 import React from 'react';
-import {Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 import SideMenu from 'react-native-side-menu-updated';
 
@@ -7,11 +6,16 @@ import {Item} from '../../../testItem/dummy';
 import List from '../../../components/Main/List';
 import SideItem from '../../../components/Main/SideItem';
 
-interface ListProps {
-  items: Item[];
+export interface TestItem {
+  _id: string;
+  title: string;
+  images: string[];
+  price: number;
 }
 
-const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
+interface ListProps {
+  items: TestItem[];
+}
 
 const MainWrap = styled.ScrollView`
   flex: 1;
@@ -19,7 +23,7 @@ const MainWrap = styled.ScrollView`
 `;
 
 const RowWrap = styled.View`
-  padding-top: ${HEIGHT / 15}px;
+  padding-top: 20px;
 `;
 
 const RowView = styled.View`
@@ -37,8 +41,8 @@ export default ({items}: ListProps) => {
       <MainWrap contentInsetAdjustmentBehavior={'never'}>
         <RowWrap>
           <RowView>
-            {items.map((item: Item, index) => (
-              <List key={index} id={item.product_id} image={item.image} />
+            {items.map((item: TestItem, index) => (
+              <List key={index} id={item._id} image={item.images[0]} />
             ))}
           </RowView>
         </RowWrap>

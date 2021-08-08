@@ -3,6 +3,10 @@ import styled from 'styled-components/native';
 
 import SizeTable from './SizeTable';
 
+interface SizeContent {
+  sizeContent: string[][];
+}
+
 const View = styled.View`
   flex: 1;
   background-color: #fff;
@@ -10,10 +14,10 @@ const View = styled.View`
 
 const Text = styled.Text``;
 
-export default () => {
+export default ({sizeContent}: SizeContent) => {
   return (
     <View>
-      <SizeTable />
+      <SizeTable sizeContent={sizeContent} />
     </View>
   );
 };

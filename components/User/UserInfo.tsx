@@ -6,8 +6,8 @@ const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 
 const UserInfoWrap = styled.View`
   width: 100%;
-  height: ${HEIGHT / 3.4}px;
-  margin-bottom: 20px;
+  height: ${HEIGHT / 3}px;
+  margin: 20px 0;
   align-items: center;
   justify-content: space-between;
 `;
@@ -78,7 +78,7 @@ function UserInfo() {
           uri: 'https://source.unsplash.com/random/400x400',
         }}
       />
-      <UserName>컨슈머</UserName>
+      <UserName>컨슈머PET</UserName>
       <ShipWrap>
         <ShipLeft>
           <ShipTitle>배송중</ShipTitle>

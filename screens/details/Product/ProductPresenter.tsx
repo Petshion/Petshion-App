@@ -1,5 +1,5 @@
 import React from 'react';
-import {Dimensions, StatusBar, Text} from 'react-native';
+import {Dimensions, StatusBar} from 'react-native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import styled from 'styled-components/native';
 
@@ -9,6 +9,18 @@ import SizeTab from '../../../components/Details/SizeTab';
 import Price from '../../../components/Price';
 import Icon from '../../../components/Icon';
 import ReviewRating from '../../../components/Details/ReviewRating';
+
+interface Item {
+  images: string[];
+  _id: string;
+  title: string;
+  brand_name: string;
+  price: number;
+  kind: string;
+  content: string;
+  size_content: string[][];
+  size: string;
+}
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -52,22 +64,23 @@ const Review = styled.View`
 `;
 
 const ReviewText = styled.Text`
+  font-family: NanumSquare;
   text-decoration: underline #7e7e7e;
   font-size: 13px;
   color: #7e7e7e;
 `;
 
+const Button = styled.TouchableOpacity``;
+
 const BottomButtonsWrap = styled.SafeAreaView`
   width: 100%;
-  height: ${HEIGHT / 15}px;
-  position: absolute;
+  height: 36px;
+  position: relative;
   justify-content: center;
   align-items: center;
   bottom: 0px;
   background-color: #ffd426;
 `;
-
-const Button = styled.TouchableOpacity``;
 
 const ButtonText = styled.Text`
   font-family: NanumSquare;
@@ -76,16 +89,19 @@ const ButtonText = styled.Text`
   color: #4e4e4e;
 `;
 
-export default () => {
+export default ({...item}: Item) => {
   return (
     <>
       <StatusBar barStyle="light-content" />
-
       <ProductWrap contentInsetAdjustmentBehavior={'never'}>
-        <BannerCarousel width={WIDTH} height={WIDTH / 0.8} />
+        <BannerCarousel
+          images={item.images}
+          width={WIDTH}
+          height={WIDTH / 0.8}
+        />
         <Info>
           <FirstLine>
-            <ProductName>아라아라아라아라</ProductName>
+            <ProductName>{item.title}</ProductName>
             <IconWrap>
               <Button>
                 <Icon custom name={'ar'} color={'#4e4e4e'} size={24} />
@@ -95,7 +111,7 @@ export default () => {
               </Button>
             </IconWrap>
           </FirstLine>
-          <Price price={1234} size={18} color={'#000'} />
+          <Price price={item.price} size={18} color={'#000'} />
           <Review>
             <ReviewRating />
             <Button>
@@ -117,12 +133,12 @@ export default () => {
             initialLayout={{width: WIDTH, height: WIDTH}}>
             <Tab.Screen
               name="Description"
-              component={DescriptionTab}
+              children={() => <DescriptionTab content={item.content} />}
               options={{tabBarLabel: '상세 설명'}}
             />
             <Tab.Screen
               name="Size"
-              component={SizeTab}
+              children={() => <SizeTab sizeContent={item.size_content} />}
               options={{tabBarLabel: '사이즈'}}
             />
           </Tab.Navigator>

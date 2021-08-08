@@ -12,10 +12,11 @@ const SizeCheck = styled.TouchableOpacity`
   align-items: center;
   justify-content: space-around;
   border: solid 0.5px #a1a1a1;
-  background-color: rgba(246, 235, 97, 0.2);
+  background-color: #4e4e4e;
 `;
 
 const SizeCheckText = styled.Text`
+  font-family: NanumSquare;
   font-size: 15px;
   font-weight: bold;
   color: #a1a1a1;
