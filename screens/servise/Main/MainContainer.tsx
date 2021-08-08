@@ -5,28 +5,28 @@ import MainPresenter from './MainPresenter';
 import {items} from '../../../testItem/dummy';
 import {mainApi} from '../../../api';
 
+export interface Item {
+  product_id: string;
+  image: string;
+}
+
 export default () => {
-  /* 서버 개발 후 연계
   const [shows, setShows] = useState({
     loading: true,
-    banner: [],
     lately: [],
-    bannerError: null,
     latelyError: null,
   });
   const getData = async () => {
-    const [banner, bannerError] = await mainApi.banner();
     const [lately, latelyError] = await mainApi.lately();
     setShows({
       loading: false,
-      banner,
       lately,
-      bannerError,
       latelyError,
     });
   };
   useEffect(() => {
     getData();
-  }, []); */
+    console.log(shows);
+  }, []);
   return <MainPresenter items={items} />;
 };

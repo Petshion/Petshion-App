@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const makeRequest = (path: any, params: any) =>
-  axios.get(`https://api.petshion.com${path}`, {
+  axios.get(`https://petshion.herokuapp.com${path}`, {
     params: {
       ...params,
     },
@@ -21,9 +21,8 @@ const getAnything = async (path: any, params = {}) => {
 };
 
 export const mainApi = {
-  banner: () => getAnything('/main/banner'),
-  lately: () => getAnything('/main/lately'),
-  product: (id: any) => getAnything(`/api/offer/${id}`),
+  lately: () => getAnything('/main'),
+  product: (id: any) => getAnything(`/product/${id}`),
   /* search: (query) => getAnything('/search/tv', { query }),
   show: (id) => getAnything(`/tv/${id}`, { append_to_response: 'videos' }), */
 };

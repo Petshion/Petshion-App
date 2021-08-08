@@ -6,8 +6,10 @@ import Checkbox from './Checkbox';
 
 const ItemWrap = styled.View`
   width: 100%;
-  height: 120px;
-  padding: 20px;
+  height: 80px;
+  margin-bottom: 20px;
+
+  padding: 0 20px;
   flex-direction: row;
   justify-content: space-between;
 `;
@@ -17,9 +19,12 @@ const ItemLeft = styled.View`
   flex-direction: row;
 `;
 
+const CheckboxWrap = styled.View``;
+
 const ImageWrap = styled.View`
   width: 80px;
   height: 100%;
+  margin-left: 10px;
 `;
 
 const Image = styled.Image`
@@ -30,21 +35,29 @@ const Image = styled.Image`
 
 const LeftTextWrap = styled.View`
   flex: 1;
-  margin-left: 20px;
-  justify-content: space-around;
+  margin-left: 10px;
+  justify-content: space-between;
 `;
 
 const Title = styled.Text`
-  font-size: 15px;
+  font-family: NanumSquare;
+  font-size: 14px;
   font-weight: bold;
+  color: #4e4e4e;
 `;
+
 const Size = styled.Text`
+  font-family: NanumSquare;
   font-size: 12px;
   font-weight: 300;
+  color: #4e4e4e;
 `;
+
 const Quantity = styled.Text`
+  font-family: NanumSquare;
   font-size: 12px;
   font-weight: 300;
+  color: #4e4e4e;
 `;
 
 const ItemRight = styled.View`
@@ -53,12 +66,31 @@ const ItemRight = styled.View`
   justify-content: space-between;
 `;
 
+const DeleteButton = styled.TouchableOpacity``;
+
+const DeleteText = styled.Text`
+  font-family: NanumSquare;
+  font-size: 12px;
+  font-weight: normal;
+  color: #4e4e4e;
+`;
+
 function BasketItem() {
   const [checkboxState, setCheckboxState] = useState(false);
 
   return (
     <ItemWrap>
       <ItemLeft>
+        <CheckboxWrap>
+          <Checkbox
+            name="check"
+            size={20}
+            iconSize={16}
+            fillColor="#efde5a"
+            unfillColor="#FFFFFF"
+            borderRadius={4}
+          />
+        </CheckboxWrap>
         <ImageWrap>
           <Image
             source={{
@@ -75,15 +107,10 @@ function BasketItem() {
         </LeftTextWrap>
       </ItemLeft>
       <ItemRight>
-        <Checkbox
-          name="check"
-          size={25}
-          iconSize={16}
-          fillColor="#efde5a"
-          unfillColor="#FFFFFF"
-          borderRadius={4}
-        />
-        <Price price={12331} size={12} />
+        <DeleteButton>
+          <DeleteText>삭제</DeleteText>
+        </DeleteButton>
+        <Price price={12331} size={12} color={'#4e4e4e'} />
       </ItemRight>
     </ItemWrap>
   );

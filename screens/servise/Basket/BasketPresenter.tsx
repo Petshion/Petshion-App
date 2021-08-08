@@ -10,6 +10,7 @@ const BasketWrap = styled.SafeAreaView`
 `;
 
 const TopView = styled.View`
+  height: 40px;
   padding: 0 20px;
   align-items: center;
   flex-direction: row;
@@ -23,20 +24,20 @@ const AllCheck = styled.View`
 
 const AllCheckText = styled.Text`
   margin-left: 10px;
+  font-family: NanumSquare;
+  font-size: 12px;
+  font-weight: normal;
+  color: #4e4e4e;
 `;
-
-const DeleteButton = styled.TouchableOpacity``;
-
-const DeleteText = styled.Text``;
 
 const ListWrap = styled.ScrollView`
   flex: 1;
-  margin-bottom: 100px;
+  margin-bottom: 72px;
 `;
 
 const BottomWrap = styled.View`
   width: 100%;
-  height: 100px;
+
   position: absolute;
   justify-content: center;
   align-items: center;
@@ -45,7 +46,7 @@ const BottomWrap = styled.View`
 
 const PriceTag = styled.View`
   width: 100%;
-  height: 50px;
+  height: 36px;
   padding: 0 20px;
   flex-direction: row;
   align-items: center;
@@ -55,7 +56,7 @@ const PriceTag = styled.View`
 
 const OrderButtons = styled.View`
   width: 100%;
-  height: 50px;
+  height: 36px;
   align-items: center;
   justify-content: center;
   background-color: #ffd426;
@@ -70,7 +71,6 @@ const PriceTitle = styled.Text`
 
 const Button = styled.TouchableOpacity`
   width: 100%;
-  height: 50px;
 `;
 
 const ButtonText = styled.Text`
@@ -87,7 +87,7 @@ export default () => {
         <AllCheck>
           <Checkbox
             name="check"
-            size={25}
+            size={20}
             iconSize={16}
             fillColor="#efde5a"
             unfillColor="#FFFFFF"
@@ -95,11 +95,14 @@ export default () => {
           />
           <AllCheckText>전체 선택</AllCheckText>
         </AllCheck>
-        <DeleteButton onPress={() => console.log('선택 삭제')}>
-          <DeleteText>선택 삭제</DeleteText>
-        </DeleteButton>
       </TopView>
       <ListWrap>
+        <BasketItem />
+        <BasketItem />
+        <BasketItem />
+        <BasketItem />
+        <BasketItem />
+        <BasketItem />
         <BasketItem />
         <BasketItem />
         <BasketItem />
