@@ -19,8 +19,10 @@ const Profile = styled.Image`
 `;
 
 const UserName = styled.Text`
-  font-size: 21px;
+  font-family: NanumSquare;
+  font-size: 18px;
   font-weight: bold;
+  color: #4e4e4e;
 `;
 
 const ShipWrap = styled.View`
@@ -33,7 +35,7 @@ const ShipLeft = styled.View`
   flex: 1;
   align-items: center;
   justify-content: space-around;
-  border: solid 0.5px #a1a1a1;
+  border: solid 0.5px #4e4e4e;
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
 `;
@@ -42,26 +44,30 @@ const ShipCenter = styled.View`
   flex: 1;
   align-items: center;
   justify-content: space-around;
-  border: solid 0.5px #a1a1a1;
+  border: solid 0.5px #4e4e4e;
 `;
 
 const ShipRight = styled.View`
   flex: 1;
   align-items: center;
   justify-content: space-around;
-  border: solid 0.5px #a1a1a1;
+  border: solid 0.5px #4e4e4e;
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
 `;
 
 const ShipTitle = styled.Text`
-  font-size: 15px;
+  font-family: NanumSquare;
+  font-size: 14px;
   font-weight: bold;
+  color: #4e4e4e;
 `;
 
 const ShipText = styled.Text`
-  font-size: 21px;
+  font-family: NanumSquare;
+  font-size: 18px;
   font-weight: bold;
+  color: #4e4e4e;
 `;
 
 function UserInfo() {

@@ -71,7 +71,7 @@ const List = ({id, image}: Item) => {
       </ImageWrap>
       <IconWrap>
         <IconButton onPress={() => setSelect(!select)}>
-          <Icon name="pets" color={select ? '#f4d540' : '#cbc9ca'} size={26} />
+          <Icon name="pets" color={select ? '#ffd426' : '#4e4e4e'} size={26} />
         </IconButton>
       </IconWrap>
     </ListWrap>

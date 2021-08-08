@@ -11,7 +11,6 @@ const Price = styled.Text`
   font-family: NanumSquare;
   font-weight: bold;
   font-style: normal;
-  line-height: 0;
   letter-spacing: 0;
   text-align: left;
   color: #000000;

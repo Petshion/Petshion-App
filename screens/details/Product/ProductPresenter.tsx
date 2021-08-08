@@ -32,10 +32,12 @@ const FirstLine = styled.View`
 `;
 
 const ProductName = styled.Text`
+  font-family: NanumSquare;
   flex: 1;
   align-self: flex-start;
-  font-size: 22px;
+  font-size: 21px;
   font-weight: bold;
+  color: #000000;
 `;
 
 const IconWrap = styled.View`
@@ -57,20 +59,21 @@ const ReviewText = styled.Text`
 
 const BottomButtonsWrap = styled.SafeAreaView`
   width: 100%;
-  height: ${HEIGHT / 10}px;
+  height: ${HEIGHT / 15}px;
   position: absolute;
   justify-content: center;
   align-items: center;
   bottom: 0px;
-  background-color: #efde5a;
+  background-color: #ffd426;
 `;
 
 const Button = styled.TouchableOpacity``;
 
 const ButtonText = styled.Text`
-  font-size: 35px;
+  font-family: NanumSquare;
+  font-size: 18px;
   font-weight: bold;
-  color: #a1a1a1;
+  color: #4e4e4e;
 `;
 
 export default () => {
@@ -85,14 +88,14 @@ export default () => {
             <ProductName>아라아라아라아라</ProductName>
             <IconWrap>
               <Button>
-                <Icon custom name={'ar'} color={'#cbc9ca'} size={24} />
+                <Icon custom name={'ar'} color={'#4e4e4e'} size={24} />
               </Button>
               <Button>
-                <Icon custom name={'share'} color={'#cbc9ca'} size={24} />
+                <Icon custom name={'share'} color={'#4e4e4e'} size={24} />
               </Button>
             </IconWrap>
           </FirstLine>
-          <Price price={1234} size={18} />
+          <Price price={1234} size={18} color={'#000'} />
           <Review>
             <ReviewRating />
             <Button>
@@ -105,10 +108,10 @@ export default () => {
             initialRouteName="Description"
             screenOptions={{
               tabBarLabelStyle: {fontSize: 15},
-              tabBarInactiveTintColor: '#7e7e7e',
-              tabBarActiveTintColor: '#f4d53f',
+              tabBarInactiveTintColor: '#4e4e4e',
+              tabBarActiveTintColor: '#ffd426',
               tabBarIndicatorStyle: {
-                backgroundColor: '#f4d53f',
+                backgroundColor: '#ffd426',
               },
             }}
             initialLayout={{width: WIDTH, height: WIDTH}}>

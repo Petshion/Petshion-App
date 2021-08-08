@@ -50,7 +50,7 @@ const PriceTag = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: #a1a1a1;
+  background-color: #4e4e4e;
 `;
 
 const OrderButtons = styled.View`
@@ -58,13 +58,14 @@ const OrderButtons = styled.View`
   height: 50px;
   align-items: center;
   justify-content: center;
-  background-color: #efde5a;
+  background-color: #ffd426;
 `;
 
 const PriceTitle = styled.Text`
-  font-size: 24px;
+  font-family: NanumSquare;
+  font-size: 18px;
   font-weight: bold;
-  color: #ffffff;
+  color: #ffd426;
 `;
 
 const Button = styled.TouchableOpacity`
@@ -73,9 +74,10 @@ const Button = styled.TouchableOpacity`
 `;
 
 const ButtonText = styled.Text`
-  font-size: 24px;
-  font-weight: 800;
-  color: #a1a1a1;
+  font-family: NanumSquare;
+  font-size: 18px;
+  font-weight: bold;
+  color: #4e4e4e;
 `;
 
 export default () => {
@@ -105,7 +107,7 @@ export default () => {
       <BottomWrap>
         <PriceTag>
           <PriceTitle>결제 예정 금액</PriceTitle>
-          <Price price={234242} size={24} color="#fff" />
+          <Price price={2242} size={24} color="#ffd426" />
         </PriceTag>
         <Button onPress={() => console.log('구매로 이동')}>
           <OrderButtons>

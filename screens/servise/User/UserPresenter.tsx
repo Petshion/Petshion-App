@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, TouchableOpacity} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
 
 import Icon from '../../../components/Icon';
@@ -24,6 +24,13 @@ const IconWrap = styled.View`
   justify-content: center;
 `;
 
+const ListText = styled.Text`
+  font-family: NanumSquare;
+  font-size: 18px;
+  font-weight: normal;
+  color: #4e4e4e;
+`;
+
 export default () => {
   const [isLogin, setIsLogin] = useState(true);
   return (
@@ -32,25 +39,25 @@ export default () => {
       <TouchableOpacity>
         <View>
           <IconWrap>
-            <Icon name="support-agent" color="#a1a1a1" size={20} />
+            <Icon name="support-agent" color="#4e4e4e" size={20} />
           </IconWrap>
-          <Text>고객센터</Text>
+          <ListText>고객센터</ListText>
         </View>
       </TouchableOpacity>
       <TouchableOpacity>
         <View>
           <IconWrap>
-            <Icon name="description" color="#a1a1a1" size={20} />
+            <Icon name="description" color="#4e4e4e" size={20} />
           </IconWrap>
-          <Text>서비스 이용약관</Text>
+          <ListText>서비스 이용약관</ListText>
         </View>
       </TouchableOpacity>
       <TouchableOpacity>
         <View>
           <IconWrap>
-            <Icon name="help-outline" color="#a1a1a1" size={20} />
+            <Icon name="help-outline" color="#4e4e4e" size={20} />
           </IconWrap>
-          <Text>사용방법</Text>
+          <ListText>사용방법</ListText>
         </View>
       </TouchableOpacity>
     </UserWrap>

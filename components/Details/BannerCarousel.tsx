@@ -15,6 +15,7 @@ interface CarouselItem {
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 
 const CarouselWrap = styled.View`
+  flex: 1;
   margin: 0 auto;
   background-color: #a5a3a3;
   justify-content: center;

@@ -37,7 +37,7 @@ export default ({navigation, route}: any) => {
           return (
             <Icon
               name={iconName}
-              color={focused ? '#f4d53f' : '#cac9ca'}
+              color={focused ? '#ffd426' : '#4e4e4e'}
               size={30}
             />
           );
@@ -45,7 +45,7 @@ export default ({navigation, route}: any) => {
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: {
-          borderTopColor: '#cac9ca',
+          borderTopColor: '#4e4e4e',
         },
       })}
       initialRouteName={'Main'}>
