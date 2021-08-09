@@ -12,8 +12,6 @@ const View = styled.View`
   background-color: #fff;
 `;
 
-const Text = styled.Text``;
-
 export default ({sizeContent}: SizeContent) => {
   return (
     <View>

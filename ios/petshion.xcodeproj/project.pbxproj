@@ -295,7 +295,7 @@
 		};
 		173756AC43A213C6659B813A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
@@ -305,7 +305,7 @@
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-petshion/Pods-petshion-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-petshion/Pods-petshion-resources.sh\"\n";
 			showEnvVarsInLog = 0;

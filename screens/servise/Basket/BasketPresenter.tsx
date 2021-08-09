@@ -24,9 +24,8 @@ const AllCheck = styled.View`
 
 const AllCheckText = styled.Text`
   margin-left: 10px;
-  font-family: NanumSquare;
+  font-family: NanumSquareRegular;
   font-size: 12px;
-  font-weight: normal;
   color: #4e4e4e;
 `;
 
@@ -63,9 +62,9 @@ const OrderButtons = styled.View`
 `;
 
 const PriceTitle = styled.Text`
-  font-family: NanumSquare;
+  font-family: NanumSquareBold;
   font-size: 18px;
-  font-weight: bold;
+
   color: #ffd426;
 `;
 
@@ -74,9 +73,9 @@ const Button = styled.TouchableOpacity`
 `;
 
 const ButtonText = styled.Text`
-  font-family: NanumSquare;
+  font-family: NanumSquareBold;
   font-size: 18px;
-  font-weight: bold;
+
   color: #4e4e4e;
 `;
 

@@ -2,34 +2,37 @@ import React, {useEffect, useState} from 'react';
 
 import MainPresenter from './MainPresenter';
 
-import {items} from '../../../testItem/dummy';
 import {mainApi} from '../../../api';
+import {ListItem} from '../../../assets/types';
 
-export interface Item {
-  product_id: string;
-  image: string;
+interface ListItemState {
+  loading: boolean;
+  getListItems: ListItem[];
+  getListItemsError?: any;
 }
 
 export default () => {
-  const [products, setProducts] = useState({
+  const [listItems, setListItems] = useState<ListItemState>({
     loading: true,
-    getProducts: [],
-    getProductsError: null,
+    getListItems: [],
+    getListItemsError: null,
   });
   const getData = async () => {
-    const [getProducts, getProductsError] = await mainApi.getProducts();
-    console.log(getProducts);
-    setProducts({
+    const [getListItems, getListItemsError] = await mainApi.listItems();
+    setListItems({
       loading: false,
-      getProducts,
-      getProductsError,
+      getListItems,
+      getListItemsError,
     });
   };
 
   useEffect(() => {
     getData();
-    console.log();
   }, []);
 
-  return <MainPresenter items={products.getProducts} />;
+  if (listItems.loading === true) {
+    return null;
+  } else {
+    return <MainPresenter items={listItems.getListItems} />;
+  }
 };

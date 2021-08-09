@@ -40,23 +40,21 @@ const LeftTextWrap = styled.View`
 `;
 
 const Title = styled.Text`
-  font-family: NanumSquare;
+  font-family: NanumSquareBold;
   font-size: 14px;
-  font-weight: bold;
   color: #4e4e4e;
 `;
 
 const Size = styled.Text`
-  font-family: NanumSquare;
+  font-family: NanumSquareLight;
   font-size: 12px;
-  font-weight: 300;
+
   color: #4e4e4e;
 `;
 
 const Quantity = styled.Text`
-  font-family: NanumSquare;
+  font-family: NanumSquareLight;
   font-size: 12px;
-  font-weight: 300;
   color: #4e4e4e;
 `;
 
@@ -69,9 +67,8 @@ const ItemRight = styled.View`
 const DeleteButton = styled.TouchableOpacity``;
 
 const DeleteText = styled.Text`
-  font-family: NanumSquare;
+  font-family: NanumSquareRegular;
   font-size: 12px;
-  font-weight: normal;
   color: #4e4e4e;
 `;
 

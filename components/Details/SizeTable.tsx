@@ -73,5 +73,5 @@ const styles = StyleSheet.create({
   wrapper: {flexDirection: 'row'},
   title: {flex: 1, backgroundColor: '#f6f8fa'},
   row: {height: 28},
-  text: {textAlign: 'center'},
+  text: {textAlign: 'center', fontFamily: 'NanumSquareRegular'},
 });

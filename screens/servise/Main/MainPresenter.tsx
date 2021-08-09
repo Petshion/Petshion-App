@@ -2,19 +2,12 @@ import React from 'react';
 import styled from 'styled-components/native';
 import SideMenu from 'react-native-side-menu-updated';
 
-import {Item} from '../../../testItem/dummy';
 import List from '../../../components/Main/List';
 import SideItem from '../../../components/Main/SideItem';
-
-export interface TestItem {
-  _id: string;
-  title: string;
-  images: string[];
-  price: number;
-}
+import {ListItem} from '../../../assets/types';
 
 interface ListProps {
-  items: TestItem[];
+  items: ListItem[];
 }
 
 const MainWrap = styled.ScrollView`
@@ -36,13 +29,14 @@ const RowView = styled.View`
 
 export default ({items}: ListProps) => {
   const menu = <SideItem />;
+
   return (
     <SideMenu menu={menu} menuPosition={'right'}>
       <MainWrap contentInsetAdjustmentBehavior={'never'}>
         <RowWrap>
           <RowView>
-            {items.map((item: TestItem, index) => (
-              <List key={index} id={item._id} image={item.images[0]} />
+            {items.map((item, index) => (
+              <List key={index} _id={item._id} images={item.images} />
             ))}
           </RowView>
         </RowWrap>

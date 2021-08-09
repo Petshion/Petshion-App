@@ -3,11 +3,7 @@ import {Dimensions} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import styled from 'styled-components/native';
 import Icon from '../../components/Icon';
-
-interface Item {
-  id?: string;
-  image: string;
-}
+import {ListItem} from '../../assets/types';
 
 interface RootStackParamList {
   navigate: any;
@@ -52,12 +48,12 @@ const IconWrap = styled.View`
 
 const IconButton = styled.TouchableOpacity``;
 
-const List = ({id, image}: Item) => {
+const List = ({_id, images}: ListItem) => {
   const [select, setSelect] = useState(false);
   const navigation = useNavigation<RootStackParamList>();
 
   const goToDetail = () => {
-    navigation.navigate('Detail', {id});
+    navigation.navigate('Detail', {_id});
   };
 
   return (
@@ -65,7 +61,7 @@ const List = ({id, image}: Item) => {
       <ImageWrap>
         <Image
           source={{
-            uri: image,
+            uri: images,
           }}
         />
       </ImageWrap>

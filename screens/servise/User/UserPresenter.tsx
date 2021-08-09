@@ -25,9 +25,8 @@ const IconWrap = styled.View`
 `;
 
 const ListText = styled.Text`
-  font-family: NanumSquare;
+  font-family: NanumSquareBold;
   font-size: 18px;
-  font-weight: normal;
   color: #4e4e4e;
 `;
 

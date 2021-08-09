@@ -1,31 +1,20 @@
 import React, {useState, useEffect} from 'react';
 
 import {mainApi} from '../../../api';
+import {Product} from '../../../assets/types';
 import ProductPresenter from './ProductPresenter';
 
-interface Item {
-  images: string[];
-  _id: string;
-  title: string;
-  brand_name: string;
-  price: number;
-  kind: string;
-  content: string;
-  size_content: string[][];
-  size: string;
-}
-
-interface Detail {
+interface ProductState {
   loading: boolean;
-  result: Item;
+  result: Product;
 }
 
 export default ({
   route: {
-    params: {id},
+    params: {_id},
   },
 }: any) => {
-  const [detail, setDetail] = useState<Detail>({
+  const [product, setProduct] = useState<ProductState>({
     loading: true,
     result: {
       images: [],
@@ -40,33 +29,31 @@ export default ({
     },
   });
   const getData = async () => {
-    const [getDetail, getDetailError] = await mainApi.product(id);
-    console.log(getDetailError);
-
-    setDetail({
+    const [getProduct, getProductError] = await mainApi.product(_id);
+    setProduct({
       loading: false,
       result: {
-        ...getDetail,
-        images: getDetail.images,
-        _id: getDetail._id,
-        title: getDetail.title,
-        brand_name: getDetail.Brand_name,
-        price: getDetail.price,
-        kind: getDetail.kind,
-        content: getDetail.content,
-        size_content: getDetail.size_content,
-        size: getDetail.size,
+        ...getProduct,
+        images: getProduct.images,
+        _id: getProduct._id,
+        title: getProduct.title,
+        brand_name: getProduct.Brand_name,
+        price: getProduct.price,
+        kind: getProduct.kind,
+        content: getProduct.content,
+        size_content: getProduct.size_content,
+        size: getProduct.size,
       },
     });
   };
 
   useEffect(() => {
     getData();
-  }, [id]);
+  }, [_id]);
 
-  if (detail.loading === true) {
+  if (product.loading === true) {
     return null;
   } else {
-    return <ProductPresenter {...detail.result} />;
+    return <ProductPresenter {...product.result} />;
   }
 };

@@ -9,18 +9,7 @@ import SizeTab from '../../../components/Details/SizeTab';
 import Price from '../../../components/Price';
 import Icon from '../../../components/Icon';
 import ReviewRating from '../../../components/Details/ReviewRating';
-
-interface Item {
-  images: string[];
-  _id: string;
-  title: string;
-  brand_name: string;
-  price: number;
-  kind: string;
-  content: string;
-  size_content: string[][];
-  size: string;
-}
+import {Product} from '../../../assets/types';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -44,11 +33,10 @@ const FirstLine = styled.View`
 `;
 
 const ProductName = styled.Text`
-  font-family: NanumSquare;
+  font-family: NanumSquareBold;
   flex: 1;
   align-self: flex-start;
   font-size: 21px;
-  font-weight: bold;
   color: #000000;
 `;
 
@@ -64,7 +52,7 @@ const Review = styled.View`
 `;
 
 const ReviewText = styled.Text`
-  font-family: NanumSquare;
+  font-family: NanumSquareBold;
   text-decoration: underline #7e7e7e;
   font-size: 13px;
   color: #7e7e7e;
@@ -83,13 +71,12 @@ const BottomButtonsWrap = styled.SafeAreaView`
 `;
 
 const ButtonText = styled.Text`
-  font-family: NanumSquare;
+  font-family: NanumSquareBold;
   font-size: 18px;
-  font-weight: bold;
   color: #4e4e4e;
 `;
 
-export default ({...item}: Item) => {
+export default ({...item}: Product) => {
   return (
     <>
       <StatusBar barStyle="light-content" />
@@ -123,7 +110,10 @@ export default ({...item}: Item) => {
           <Tab.Navigator
             initialRouteName="Description"
             screenOptions={{
-              tabBarLabelStyle: {fontSize: 15},
+              tabBarLabelStyle: {
+                fontSize: 15,
+                fontFamily: 'NanumSquareRegular',
+              },
               tabBarInactiveTintColor: '#4e4e4e',
               tabBarActiveTintColor: '#ffd426',
               tabBarIndicatorStyle: {

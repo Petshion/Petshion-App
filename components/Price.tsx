@@ -8,11 +8,7 @@ interface Price {
 }
 
 const Price = styled.Text`
-  font-family: NanumSquare;
-  font-weight: bold;
-  font-style: normal;
-  letter-spacing: 0;
-  text-align: left;
+  font-family: NanumSquareBold;
   color: #000000;
 `;
 

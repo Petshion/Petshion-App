@@ -19,9 +19,8 @@ const Profile = styled.Image`
 `;
 
 const UserName = styled.Text`
-  font-family: NanumSquare;
+  font-family: NanumSquareBold;
   font-size: 18px;
-  font-weight: bold;
   color: #4e4e4e;
 `;
 
@@ -57,16 +56,15 @@ const ShipRight = styled.View`
 `;
 
 const ShipTitle = styled.Text`
-  font-family: NanumSquare;
+  font-family: NanumSquareBold;
   font-size: 14px;
-  font-weight: bold;
+
   color: #4e4e4e;
 `;
 
 const ShipText = styled.Text`
-  font-family: NanumSquare;
+  font-family: NanumSquareBold;
   font-size: 18px;
-  font-weight: bold;
   color: #4e4e4e;
 `;
 
@@ -78,7 +76,7 @@ function UserInfo() {
           uri: 'https://source.unsplash.com/random/400x400',
         }}
       />
-      <UserName>컨슈머PET</UserName>
+      <UserName>컨슈머</UserName>
       <ShipWrap>
         <ShipLeft>
           <ShipTitle>배송중</ShipTitle>

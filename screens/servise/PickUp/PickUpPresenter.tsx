@@ -35,7 +35,7 @@ export default ({items}: ListProps) => {
         <RowWrap>
           <RowView>
             {items.map((item: Item, index) => (
-              <List key={index} id={item.product_id} image={item.image} />
+              <List key={index} id={item._id} image={item.image} />
             ))}
           </RowView>
         </RowWrap>

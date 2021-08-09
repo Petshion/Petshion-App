@@ -24,7 +24,7 @@ const getAnything = async (path: any, params = {}) => {
 };
 
 export const mainApi = {
-  getProducts: () => getAnything('/main'),
+  listItems: () => getAnything('/main'),
   product: (id: any) => getAnything(`/product/${id}`),
   /* search: (query) => getAnything('/search/tv', { query }),
   show: (id) => getAnything(`/tv/${id}`, { append_to_response: 'videos' }), */
