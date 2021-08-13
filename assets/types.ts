@@ -14,3 +14,9 @@ export interface Product {
   size_content: string[][];
   size: string;
 }
+
+export interface RootStackParamList {
+  navigate: any;
+  name: string[];
+  params: string;
+}

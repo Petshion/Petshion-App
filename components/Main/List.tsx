@@ -3,13 +3,7 @@ import {Dimensions} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import styled from 'styled-components/native';
 import Icon from '../../components/Icon';
-import {ListItem} from '../../assets/types';
-
-interface RootStackParamList {
-  navigate: any;
-  name: string[];
-  params: string;
-}
+import {ListItem, RootStackParamList} from '../../assets/types';
 
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 

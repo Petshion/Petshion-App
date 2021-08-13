@@ -1,5 +1,6 @@
 import React from 'react';
 import {Dimensions, StatusBar} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import styled from 'styled-components/native';
 
@@ -9,7 +10,7 @@ import SizeTab from '../../../components/Details/SizeTab';
 import Price from '../../../components/Price';
 import Icon from '../../../components/Icon';
 import ReviewRating from '../../../components/Details/ReviewRating';
-import {Product} from '../../../assets/types';
+import {Product, RootStackParamList} from '../../../assets/types';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -77,6 +78,12 @@ const ButtonText = styled.Text`
 `;
 
 export default ({...item}: Product) => {
+  const navigation = useNavigation<RootStackParamList>();
+
+  const goToAR = () => {
+    navigation.navigate('AR');
+  };
+
   return (
     <>
       <StatusBar barStyle="light-content" />
@@ -90,7 +97,7 @@ export default ({...item}: Product) => {
           <FirstLine>
             <ProductName>{item.title}</ProductName>
             <IconWrap>
-              <Button>
+              <Button onPress={goToAR}>
                 <Icon custom name={'ar'} color={'#4e4e4e'} size={24} />
               </Button>
               <Button>
