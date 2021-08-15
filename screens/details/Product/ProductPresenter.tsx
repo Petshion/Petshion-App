@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {Dimensions, StatusBar} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import styled from 'styled-components/native';
+import RBSheet from 'react-native-raw-bottom-sheet';
 
 import BannerCarousel from '../../../components/Details/BannerCarousel';
 import DescriptionTab from '../../../components/Details/DescriptionTab';
@@ -11,6 +12,7 @@ import Price from '../../../components/Price';
 import Icon from '../../../components/Icon';
 import ReviewRating from '../../../components/Details/ReviewRating';
 import {Product, RootStackParamList} from '../../../assets/types';
+import SelectOrder from '../../../components/Details/SelectOrder';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -79,6 +81,7 @@ const ButtonText = styled.Text`
 
 export default ({...item}: Product) => {
   const navigation = useNavigation<RootStackParamList>();
+  const refRBSheet = useRef();
 
   const goToAR = () => {
     navigation.navigate('AR');
@@ -141,11 +144,26 @@ export default ({...item}: Product) => {
           </Tab.Navigator>
         </TabWrap>
       </ProductWrap>
-      <Button onPress={() => console.log('구매로 이동')}>
+      <Button onPress={() => refRBSheet.current.open()}>
         <BottomButtonsWrap>
           <ButtonText>주문하기</ButtonText>
         </BottomButtonsWrap>
       </Button>
+      <RBSheet
+        ref={refRBSheet}
+        height={HEIGHT / 2.5}
+        closeOnDragDown={true}
+        closeOnPressMask={true}
+        customStyles={{
+          wrapper: {
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          },
+          draggableIcon: {
+            backgroundColor: 'transparent',
+          },
+        }}>
+        <SelectOrder />
+      </RBSheet>
     </>
   );
 };

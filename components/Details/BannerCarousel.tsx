@@ -33,7 +33,6 @@ export default ({images, width, height, marginTop, radius}: CarouselItem) => {
         borderRadius: radius,
       }}>
       <Swiper
-        loop
         springConfig={{damping: 20}}
         controlsProps={{
           prevPos: false,

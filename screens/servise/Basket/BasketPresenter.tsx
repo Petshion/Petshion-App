@@ -75,7 +75,6 @@ const Button = styled.TouchableOpacity`
 const ButtonText = styled.Text`
   font-family: NanumSquareBold;
   font-size: 18px;
-
   color: #4e4e4e;
 `;
 
