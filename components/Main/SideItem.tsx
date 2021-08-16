@@ -9,7 +9,7 @@ import SizeCheck from './SizeCheck';
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 
 const ItemWrap = styled.ScrollView`
-  padding: ${HEIGHT / 10}px 20px 20px 20px;
+  padding: ${HEIGHT / 15}px 20px 20px 20px;
 `;
 
 const ColorCheckbox = styled.View`

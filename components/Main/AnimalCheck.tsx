@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components/native';
 import Icon from '../Icon';
 
@@ -13,12 +13,14 @@ const SizeCheck = styled.TouchableOpacity`
   align-items: center;
   justify-content: space-around;
   border: solid 0.5px #a1a1a1;
-  background-color: #4e4e4e;
 `;
 
 export default ({left, right, name}: SizeCheck) => {
+  const [checkState, setCheckState] = useState(false);
+
   return (
     <SizeCheck
+      onPress={() => setCheckState(!checkState)}
       style={{
         marginTop: 1,
         ...(left
@@ -30,8 +32,16 @@ export default ({left, right, name}: SizeCheck) => {
         ...(right
           ? {borderTopRightRadius: 15, borderBottomRightRadius: 15}
           : {}),
+        ...(checkState
+          ? {backgroundColor: '#ffd426'}
+          : {backgroundColor: '#4e4e4e'}),
       }}>
-      <Icon custom name={name} color={'#A6A6A6'} size={50} />
+      <Icon
+        custom
+        name={name}
+        color={checkState ? '#4e4e4e' : '#a1a1a1'}
+        size={50}
+      />
     </SizeCheck>
   );
 };

@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import SideMenu from 'react-native-side-menu-updated';
 
 import {Item} from '../../../testItem/dummy';
 import List from '../../../components/Main/List';
-import SideItem from '../../../components/Main/SideItem';
 
 interface ListProps {
   items: Item[];
@@ -28,18 +26,15 @@ const RowView = styled.View`
 `;
 
 export default ({items}: ListProps) => {
-  const menu = <SideItem />;
   return (
-    <SideMenu menu={menu} menuPosition={'right'}>
-      <MainWrap contentInsetAdjustmentBehavior={'never'}>
-        <RowWrap>
-          <RowView>
-            {items.map((item: Item, index) => (
-              <List key={index} id={item._id} image={item.image} />
-            ))}
-          </RowView>
-        </RowWrap>
-      </MainWrap>
-    </SideMenu>
+    <MainWrap contentInsetAdjustmentBehavior={'never'}>
+      <RowWrap>
+        <RowView>
+          {items.map((item: Item, index) => (
+            <List key={index} _id={item._id} images={item.image} />
+          ))}
+        </RowView>
+      </RowWrap>
+    </MainWrap>
   );
 };

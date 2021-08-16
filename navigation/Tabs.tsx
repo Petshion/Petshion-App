@@ -1,7 +1,7 @@
-import React, {useLayoutEffect} from 'react';
+import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import MainScreen from '../screens/servise/Main';
+import MainDrawer from './MainDrawer';
 import BasketScreen from '../screens/servise/Basket';
 import PickUpScreen from '../screens/servise/PickUp';
 import UserScreen from '../screens/servise/User';
@@ -9,17 +9,7 @@ import Icon from '../components/Icon';
 
 const Tabs = createBottomTabNavigator();
 
-const getHeaderName = (route: any) =>
-  route?.state?.routeNames[route.state.index] || 'Main';
-
 export default ({navigation, route}: any) => {
-  /* 라우트별 헤더 노출 비노출 여부
-  useLayoutEffect(() => {
-    const name = getHeaderName(route);
-    navigation.setOptions({
-      title: false,
-    });
-  }, [route]); */
   return (
     <Tabs.Navigator
       screenOptions={({route}) => ({
@@ -49,7 +39,7 @@ export default ({navigation, route}: any) => {
         },
       })}
       initialRouteName={'Main'}>
-      <Tabs.Screen name="Main" component={MainScreen} />
+      <Tabs.Screen name="Main" component={MainDrawer} />
       <Tabs.Screen name="Basket" component={BasketScreen} />
       <Tabs.Screen name="PickUp" component={PickUpScreen} />
       <Tabs.Screen name="User" component={UserScreen} />
