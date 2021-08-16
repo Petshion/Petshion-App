@@ -54,7 +54,7 @@ const Button = styled.TouchableOpacity`
 `;
 
 const SelectedCountView = styled.View`
-  padding: 8px 20px;
+  padding: 2px 16px;
   justify-content: space-between;
   flex-direction: row;
 `;
@@ -101,7 +101,8 @@ export default () => {
           label: '색상',
           value: 'null',
         }}
-        //Icon={() => <Icon name={'expand-more'} color={'#000'} size={18} />}
+        useNativeAndroidPickerStyle={false}
+        Icon={() => <Icon name={'expand-more'} color={'#000'} size={25} />}
         style={pickerSelectStyles}
         items={[
           {label: '검은색', value: '검은색'},
@@ -110,12 +111,13 @@ export default () => {
         ]}
       />
       <RNPickerSelect
-        onValueChange={(itemValue, itemIndex) => setSelectedColor(itemValue)}
+        onValueChange={(itemValue, itemIndex) => setSelectedSize(itemValue)}
         placeholder={{
           label: '사이즈',
           value: 'null',
         }}
-        //Icon={() => <Icon name={'expand-more'} color={'#000'} size={18} />}
+        useNativeAndroidPickerStyle={false}
+        Icon={() => <Icon name={'expand-more'} color={'#000'} size={25} />}
         style={pickerSelectStyles}
         items={[
           {label: 'S', value: 'S'},
@@ -157,15 +159,22 @@ const pickerSelectStyles = StyleSheet.create({
   inputAndroid: {
     fontFamily: 'NanumSquareBold',
     fontSize: 16,
+    marginBottom: 20,
     paddingHorizontal: 10,
-    paddingVertical: 8,
+    paddingVertical: 2,
     borderWidth: 1,
     borderColor: '#cacaca',
     borderRadius: 4,
-    color: 'black',
+    color: '#4e4e4e',
     paddingRight: 30, // to ensure the text is never behind the icon
   },
   placeholder: {
+    fontFamily: 'NanumSquareBold',
+    fontSize: 16,
     color: '#4e4e4e',
+  },
+  iconContainer: {
+    top: 4,
+    right: 10,
   },
 });
