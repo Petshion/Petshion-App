@@ -1,9 +1,9 @@
 import React from 'react';
 import {Dimensions} from 'react-native';
 import styled from 'styled-components/native';
-import AnimalCheck from './AnimalCheck';
 
-import SideCheckbox from './SideCheckbox';
+import AnimalCheck from './AnimalCheck';
+import ColorCheck from './ColorCheck';
 import SizeCheck from './SizeCheck';
 
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
@@ -35,25 +35,25 @@ export default () => {
   return (
     <ItemWrap>
       <ColorCheckbox>
-        <SideCheckbox color="#d9362a" />
-        <SideCheckbox color="#efd550" />
-        <SideCheckbox color="#b1db46" />
-        <SideCheckbox color="#3131f4" />
-        <SideCheckbox color="#c6c6c6" />
-        <SideCheckbox color="#e6cda7" />
-        <SideCheckbox color="#ffffff" />
-        <SideCheckbox color="#000000" />
+        <ColorCheck name={'빨강'} color="#d9362a" />
+        <ColorCheck name={'노랑'} color="#efd550" />
+        <ColorCheck name={'초록'} color="#b1db46" />
+        <ColorCheck name={'파랑'} color="#3131f4" />
+        <ColorCheck name={'은'} color="#c6c6c6" />
+        <ColorCheck name={'금'} color="#e6cda7" />
+        <ColorCheck name={'흰'} color="#ffffff" />
+        <ColorCheck name={'검'} color="#000000" />
       </ColorCheckbox>
       <SizeCheckWrap>
-        <SizeCheck left name={'S'} />
+        <SizeCheck name={'S'} left />
         <SizeCheck name={'M'} />
         <SizeCheck name={'L'} />
         <SizeCheck name={'XL'} />
-        <SizeCheck right name={'2XL'} />
+        <SizeCheck name={'2XL'} right />
       </SizeCheckWrap>
       <AnimalCheckWrap>
-        <AnimalCheck left name={'cat'} />
-        <AnimalCheck right name={'dog'} />
+        <AnimalCheck name={'cat'} left />
+        <AnimalCheck name={'dog'} right />
       </AnimalCheckWrap>
     </ItemWrap>
   );

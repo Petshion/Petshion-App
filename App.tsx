@@ -8,14 +8,18 @@
 
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
+import {Provider} from 'react-redux';
 
 import Stack from './navigation/Stack';
+import store from './modules';
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Stack />
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack />
+      </NavigationContainer>
+    </Provider>
   );
 };
 

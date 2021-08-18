@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
+import {useDispatch} from 'react-redux';
+import {addKind, removeKind} from '../../modules/filter';
+
 import Icon from '../Icon';
 
 interface SizeCheck {
@@ -18,9 +21,21 @@ const SizeCheck = styled.TouchableOpacity`
 export default ({left, right, name}: SizeCheck) => {
   const [checkState, setCheckState] = useState(false);
 
+  const dispatch = useDispatch();
+
+  const ToggleState = async () => {
+    if (checkState) {
+      setCheckState(!checkState);
+      dispatch(removeKind(name));
+    } else {
+      setCheckState(!checkState);
+      dispatch(addKind(name));
+    }
+  };
+
   return (
     <SizeCheck
-      onPress={() => setCheckState(!checkState)}
+      onPress={ToggleState}
       style={{
         marginTop: 1,
         ...(left

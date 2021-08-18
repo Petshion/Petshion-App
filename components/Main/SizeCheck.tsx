@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
+import {useDispatch} from 'react-redux';
+import {addSize, removeSize} from '../../modules/filter';
 
 interface SizeCheck {
   left?: boolean;
@@ -23,9 +25,21 @@ const SizeCheckText = styled.Text`
 export default ({left, right, name}: SizeCheck) => {
   const [checkState, setCheckState] = useState(false);
 
+  const dispatch = useDispatch();
+
+  const ToggleState = async () => {
+    if (checkState) {
+      setCheckState(!checkState);
+      dispatch(removeSize(name));
+    } else {
+      setCheckState(!checkState);
+      dispatch(addSize(name));
+    }
+  };
+
   return (
     <SizeCheck
-      onPress={() => setCheckState(!checkState)}
+      onPress={ToggleState}
       style={{
         marginTop: 1,
         ...(left

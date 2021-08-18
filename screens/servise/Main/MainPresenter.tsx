@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components/native';
 
 import List from '../../../components/Main/List';
@@ -25,14 +25,20 @@ const RowView = styled.View`
   flex-wrap: wrap;
 `;
 
+const Loading = styled.Text``;
+
 export default ({items}: ListProps) => {
   return (
     <MainWrap contentInsetAdjustmentBehavior={'never'}>
       <RowWrap>
         <RowView>
-          {items.map((item, index) => (
-            <List key={index} _id={item._id} images={item.images} />
-          ))}
+          {items ? (
+            items.map((item, index) => (
+              <List key={index} _id={item._id} images={item.images} />
+            ))
+          ) : (
+            <Loading>loading...</Loading>
+          )}
         </RowView>
       </RowWrap>
     </MainWrap>
