@@ -1,12 +1,15 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-interface FilterState {
-  filter: {
-    color: string[];
-    size: string[];
-    kind: string[];
-  };
+export interface FilterItem {
+  color: string[];
+  size: string[];
+  kind: string[];
 }
+
+export interface FilterState {
+  filter: FilterItem;
+}
+
 const initialState: FilterState = {
   filter: {
     color: [],
