@@ -42,7 +42,7 @@ const IconWrap = styled.View`
 
 const IconButton = styled.TouchableOpacity``;
 
-const List = ({_id, images}: ListItem) => {
+const List = React.memo(({_id, images}: ListItem) => {
   const [select, setSelect] = useState(false);
   const navigation = useNavigation<RootStackParamList>();
 
@@ -66,6 +66,6 @@ const List = ({_id, images}: ListItem) => {
       </IconWrap>
     </ListWrap>
   );
-};
+});
 
 export default List;

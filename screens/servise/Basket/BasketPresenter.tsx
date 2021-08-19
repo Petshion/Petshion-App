@@ -1,5 +1,9 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import {Alert} from 'react-native';
 import styled from 'styled-components/native';
+import {useDispatch} from 'react-redux';
+import {orderRemove, BasketState} from '../../../modules/basket';
+
 import BasketItem from '../../../components/Basket/BasketItem';
 import Checkbox from '../../../components/Basket/Checkbox';
 import Price from '../../../components/Price';
@@ -78,44 +82,90 @@ const ButtonText = styled.Text`
   color: #4e4e4e;
 `;
 
-export default () => {
+const Loading = styled.Text``;
+
+export default ({baskets}: BasketState) => {
+  const [sumPrice, setSumPrice] = useState(0);
+  const [allSelectCheck, setAllSelectCheck] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const orderButtonAlert = () =>
+    Alert.alert('팻션', '주문을 완료하였습니다.', [
+      {text: '확인', onPress: () => dispatch(orderRemove())},
+    ]);
+
+  const sumPriceF = () => {
+    let sum = 0;
+    for (let i = 0; i < baskets.length; i++) {
+      if (baskets[i].checked === true) {
+        sum += baskets[i].price * baskets[i].count;
+      }
+    }
+    setSumPrice(sum);
+  };
+
+  const allSelectCheckF = () => {
+    const set = baskets.map(baskets => baskets.checked);
+    if (set.indexOf(false) === -1) {
+      setAllSelectCheck(true);
+    } else {
+      setAllSelectCheck(false);
+    }
+  };
+
+  useEffect(() => {
+    sumPriceF();
+    allSelectCheckF();
+  }, [baskets]);
+
   return (
     <BasketWrap>
       <TopView>
         <AllCheck>
           <Checkbox
-            name="check"
-            size={20}
-            iconSize={16}
+            name={'all'}
+            checked={allSelectCheck}
             fillColor="#efde5a"
             unfillColor="#FFFFFF"
-            borderRadius={4}
           />
           <AllCheckText>전체 선택</AllCheckText>
         </AllCheck>
       </TopView>
       <ListWrap>
-        <BasketItem />
-        <BasketItem />
-        <BasketItem />
-        <BasketItem />
-        <BasketItem />
-        <BasketItem />
-        <BasketItem />
-        <BasketItem />
-        <BasketItem />
+        {baskets ? (
+          baskets.map((baskets, index) => (
+            <BasketItem
+              key={index}
+              id={baskets.id}
+              title={baskets.title}
+              image={baskets.image}
+              color={baskets.color}
+              size={baskets.size}
+              count={baskets.count}
+              price={baskets.price}
+              checked={baskets.checked}
+            />
+          ))
+        ) : (
+          <Loading>loading...</Loading>
+        )}
       </ListWrap>
-      <BottomWrap>
-        <PriceTag>
-          <PriceTitle>결제 예정 금액</PriceTitle>
-          <Price price={2242} size={24} color="#ffd426" />
-        </PriceTag>
-        <Button onPress={() => console.log('구매로 이동')}>
-          <OrderButtons>
-            <ButtonText>주문하기</ButtonText>
-          </OrderButtons>
-        </Button>
-      </BottomWrap>
+      {baskets.length ? (
+        <BottomWrap>
+          <PriceTag>
+            <PriceTitle>결제 예정 금액</PriceTitle>
+            <Price kor price={sumPrice} size={24} color="#ffd426" />
+          </PriceTag>
+          <Button onPress={orderButtonAlert}>
+            <OrderButtons>
+              <ButtonText>주문하기</ButtonText>
+            </OrderButtons>
+          </Button>
+        </BottomWrap>
+      ) : (
+        <></>
+      )}
     </BasketWrap>
   );
 };

@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
-import {Dimensions, StyleSheet} from 'react-native';
+import {Alert, Dimensions, StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 import RNPickerSelect from 'react-native-picker-select';
 import Icon from '../Icon';
 
 import {Text} from '../Text';
+import {useNavigation} from '@react-navigation/native';
+import {RootStackParamList} from '../../assets/types';
 
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 
@@ -86,12 +88,19 @@ export default () => {
   const [selectedSize, setSelectedSize] = useState();
   const [count, setCount] = useState(1);
 
+  const navigation = useNavigation<RootStackParamList>();
+
   const minus = () => {
     if (count === 1) {
       return;
     }
     setCount(count - 1);
   };
+
+  const orderButtonAlert = () =>
+    Alert.alert('팻션', '주문을 완료하였습니다.', [
+      {text: '확인', onPress: () => navigation.navigate('Main')},
+    ]);
 
   return (
     <SelectOrderWrap>
@@ -145,7 +154,7 @@ export default () => {
             <BasketText>장바구니</BasketText>
           </BasketButton>
         </Button>
-        <Button>
+        <Button onPress={orderButtonAlert}>
           <OrderButton>
             <OrderText>주문하기</OrderText>
           </OrderButton>

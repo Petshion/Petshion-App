@@ -2637,6 +2637,14 @@ cosmiconfig@^5.0.5, cosmiconfig@^5.1.0:
     js-yaml "^3.13.1"
     parse-json "^4.0.0"
 
+create-react-class@^15.7.0:
+  version "15.7.0"
+  resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.7.0.tgz#7499d7ca2e69bb51d13faf59bd04f0c65a1d6c1e"
+  integrity sha512-QZv4sFWG9S5RUvkTYWbflxeZX+JG7Cz0Tn33rQBJ+WFQTqTfUTjMjiv9tnfXazjsO5r0KhPs+AqCjyrQX6h2ng==
+  dependencies:
+    loose-envify "^1.3.1"
+    object-assign "^4.1.1"
+
 cross-fetch@^3.0.4:
   version "3.1.4"
   resolved "https://registry.npmjs.org/cross-fetch/-/cross-fetch-3.1.4.tgz"
@@ -4988,7 +4996,7 @@ logkitty@^0.7.1:
     dayjs "^1.8.15"
     yargs "^15.1.0"
 
-loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
+loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1, loose-envify@^1.4.0:
   version "1.4.0"
   resolved "https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz"
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
@@ -6084,26 +6092,6 @@ react-is@^16.13.0, react-is@^16.13.1, react-is@^16.7.0, react-is@^16.8.1:
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-native-apple-header@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.npmjs.org/react-native-apple-header/-/react-native-apple-header-0.1.1.tgz"
-  integrity sha512-olhk1icxbmX4p320+iE3NunTQOlqBHMxHp/HcQ3XiUpPzekLPhJKK0r5dZfp80LEdcdxnZKhJMJqq0FquIG/VQ==
-
-react-native-bottom-search-bar@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.npmjs.org/react-native-bottom-search-bar/-/react-native-bottom-search-bar-0.1.3.tgz"
-  integrity sha512-im72UyXMBB02AMBDi22Kldlj7JDrUIpWcpb/Gsy2ODttNDdI1EGoOnPtOYhm+HLoCuFADS60w4LxtdUrwC7AQQ==
-
-react-native-bouncy-checkbox@^2.1.3:
-  version "2.1.3"
-  resolved "https://registry.npmjs.org/react-native-bouncy-checkbox/-/react-native-bouncy-checkbox-2.1.3.tgz"
-  integrity sha512-24Xz5hbFg+Tnr7waFYvNfibGDblwHU217rSMQW6YXZYVIoczZ3UM58Kks7W4nUUYOZmMFzE4ClXMYPiOI3V9sw==
-  dependencies:
-    react-native-apple-header "^0.1.1"
-    react-native-bottom-search-bar "^0.1.3"
-    react-native-dynamic-vector-icons "^1.1.6"
-    react-native-vector-icons "^8.1.0"
-
 react-native-codegen@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/react-native-codegen/-/react-native-codegen-0.0.6.tgz#b3173faa879cf71bfade8d030f9c4698388f6909"
@@ -6112,11 +6100,6 @@ react-native-codegen@^0.0.6:
     flow-parser "^0.121.0"
     jscodeshift "^0.11.0"
     nullthrows "^1.1.1"
-
-react-native-dynamic-vector-icons@^1.1.6:
-  version "1.1.6"
-  resolved "https://registry.npmjs.org/react-native-dynamic-vector-icons/-/react-native-dynamic-vector-icons-1.1.6.tgz"
-  integrity sha512-tz098Wv/4TI70BRWfshSyVzWsoV4PRdp6fMMA7GRmxsaERfYshEy3Rs3bvD9tVjD+zKUcmM4Ce7bmAoJkGSNdg==
 
 react-native-gesture-handler@^1.10.3:
   version "1.10.3"

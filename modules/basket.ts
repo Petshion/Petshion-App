@@ -1,6 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
+import {basketItems} from '../testItem/dummy';
 
-export interface BasketItem {
+export interface BasketItemState {
   id: string;
   title: string;
   image: string;
@@ -12,11 +13,11 @@ export interface BasketItem {
 }
 
 export interface BasketState {
-  baskets: BasketItem[];
+  baskets: BasketItemState[];
 }
 
 const initialState: BasketState = {
-  baskets: [],
+  baskets: basketItems,
 };
 
 export const basketSlice = createSlice({
@@ -28,17 +29,25 @@ export const basketSlice = createSlice({
         baskets.checked = true;
       });
     },
+    allDisSelect: state => {
+      state.baskets.map(baskets => {
+        baskets.checked = false;
+      });
+    },
     toggleSelect: (state, {payload: id}) => {
-      state.baskets[id].checked = !state.baskets[id].checked;
+      const index = state.baskets.findIndex(basket => basket.id === id);
+      state.baskets[index].checked = !state.baskets[index].checked;
     },
     minusCount: (state, {payload: id}) => {
-      if (state.baskets[id].count === 1) {
+      const index = state.baskets.findIndex(basket => basket.id === id);
+      if (state.baskets[index].count === 1) {
         return;
       }
-      state.baskets[id].count = state.baskets[id].count - 1;
+      state.baskets[index].count = state.baskets[index].count - 1;
     },
     plusCount: (state, {payload: id}) => {
-      state.baskets[id].count = state.baskets[id].count + 1;
+      const index = state.baskets.findIndex(basket => basket.id === id);
+      state.baskets[index].count = state.baskets[index].count + 1;
     },
     remove: (state, {payload: id}) => {
       const index = state.baskets.findIndex(basket => basket.id === id);
@@ -57,6 +66,7 @@ export const basketSlice = createSlice({
 
 export const {
   allSelect,
+  allDisSelect,
   toggleSelect,
   minusCount,
   plusCount,

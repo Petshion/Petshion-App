@@ -1,6 +1,14 @@
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
+import {useDispatch} from 'react-redux';
+import {
+  minusCount,
+  plusCount,
+  remove,
+  BasketItemState,
+} from '../../modules/basket';
 
+import Icon from '../Icon';
 import Price from '../Price';
 import Checkbox from './Checkbox';
 
@@ -8,7 +16,6 @@ const ItemWrap = styled.View`
   width: 100%;
   height: 80px;
   margin-bottom: 20px;
-
   padding: 0 20px;
   flex-direction: row;
   justify-content: space-between;
@@ -52,10 +59,26 @@ const Size = styled.Text`
   color: #4e4e4e;
 `;
 
-const Quantity = styled.Text`
+const CountView = styled.View`
+  width: 60px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const Count = styled.Text`
   font-family: NanumSquareLight;
   font-size: 12px;
   color: #4e4e4e;
+`;
+
+const CountButton = styled.TouchableOpacity`
+  width: 14px;
+  height: 14px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  background-color: #4e4e4e;
 `;
 
 const ItemRight = styled.View`
@@ -72,45 +95,58 @@ const DeleteText = styled.Text`
   color: #4e4e4e;
 `;
 
-function BasketItem() {
-  const [checkboxState, setCheckboxState] = useState(false);
+const BasketItem = React.memo(
+  ({id, title, image, color, size, count, price, checked}: BasketItemState) => {
+    const [checkboxState, setCheckboxState] = useState(false);
 
-  return (
-    <ItemWrap>
-      <ItemLeft>
-        <CheckboxWrap>
-          <Checkbox
-            name="check"
-            size={20}
-            iconSize={16}
-            fillColor="#efde5a"
-            unfillColor="#FFFFFF"
-            borderRadius={4}
-          />
-        </CheckboxWrap>
-        <ImageWrap>
-          <Image
-            source={{
-              uri: 'https://source.unsplash.com/random/400x400',
-            }}
-          />
-        </ImageWrap>
-        <LeftTextWrap>
-          <Title numberOfLines={1} ellipsizeMode="tail">
-            상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명
-          </Title>
-          <Size>색 / 사이즈</Size>
-          <Quantity>1개</Quantity>
-        </LeftTextWrap>
-      </ItemLeft>
-      <ItemRight>
-        <DeleteButton>
-          <DeleteText>삭제</DeleteText>
-        </DeleteButton>
-        <Price price={12331} size={12} color={'#4e4e4e'} />
-      </ItemRight>
-    </ItemWrap>
-  );
-}
+    const dispatch = useDispatch();
+
+    return (
+      <ItemWrap>
+        <ItemLeft>
+          <CheckboxWrap>
+            <Checkbox
+              name="check"
+              id={id}
+              checked={checked}
+              fillColor="#efde5a"
+              unfillColor="#FFFFFF"
+            />
+          </CheckboxWrap>
+          <ImageWrap>
+            <Image
+              source={{
+                uri: image,
+              }}
+            />
+          </ImageWrap>
+          <LeftTextWrap>
+            <Title numberOfLines={1} ellipsizeMode="tail">
+              {title}
+            </Title>
+            <Size>
+              {color} / {size}
+            </Size>
+            <CountView>
+              <CountButton onPress={() => dispatch(minusCount(id))}>
+                <Icon name={'remove'} color={'#fff'} size={12} />
+              </CountButton>
+              <Count>{count}</Count>
+              <CountButton onPress={() => dispatch(plusCount(id))}>
+                <Icon name={'add'} color={'#fff'} size={12} />
+              </CountButton>
+            </CountView>
+          </LeftTextWrap>
+        </ItemLeft>
+        <ItemRight>
+          <DeleteButton onPress={() => dispatch(remove(id))}>
+            <DeleteText>삭제</DeleteText>
+          </DeleteButton>
+          <Price kor price={price} size={12} color={'#4e4e4e'} />
+        </ItemRight>
+      </ItemWrap>
+    );
+  },
+);
 
 export default BasketItem;
