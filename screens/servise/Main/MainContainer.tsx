@@ -61,5 +61,8 @@ export default () => {
     getUpdateData();
   }, [filter]);
 
+  if (listItems.loading === true) {
+    return <></>;
+  }
   return <MainPresenter refreshFn={getUpdateData} {...listItems} />;
 };

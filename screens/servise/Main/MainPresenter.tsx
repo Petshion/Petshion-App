@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 import ScrollContainer from '../../../components/ScrollContainer';
 import List from '../../../components/Main/List';
 import {ListItem} from '../../../assets/types';
+import VoidView from '../../../components/VoidView';
 
 interface ListProps {
   loading: boolean;
@@ -28,22 +29,43 @@ const RowView = styled.View`
   flex-wrap: wrap;
 `;
 
-const Loading = styled.Text``;
+const VoidText = styled.Text`
+  margin-top: 20px;
+  font-family: NanumSquareRegular;
+  font-size: 18px;
+  color: #4e4e4e;
+`;
+
+const VoidTextColor = styled.Text`
+  font-family: NanumSquareRegular;
+  font-size: 18px;
+  color: #ffd426;
+`;
 
 export default ({refreshFn, loading, getListItems}: ListProps) => {
-  return (
-    <ScrollContainer refreshFn={refreshFn} loading={loading}>
-      <RowWrap>
-        <RowView>
-          {getListItems ? (
-            getListItems.map((item, index) => (
-              <List key={index} _id={item._id} images={item.images} />
-            ))
-          ) : (
-            <Loading>loading...</Loading>
-          )}
-        </RowView>
-      </RowWrap>
-    </ScrollContainer>
-  );
+  if (getListItems.length) {
+    return (
+      <ScrollContainer refreshFn={refreshFn} loading={loading}>
+        <RowWrap>
+          <RowView>
+            {getListItems ? (
+              getListItems.map((item, index) => (
+                <List key={index} _id={item._id} images={item.images} />
+              ))
+            ) : (
+              <></>
+            )}
+          </RowView>
+        </RowWrap>
+      </ScrollContainer>
+    );
+  } else {
+    return (
+      <VoidView name={'search-off'}>
+        <VoidText>
+          <VoidTextColor>검색 결과</VoidTextColor>가 없는 모양이에요. 😱
+        </VoidText>
+      </VoidView>
+    );
+  }
 };
