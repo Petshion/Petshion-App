@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components/native';
 
+import ScrollContainer from '../../../components/ScrollContainer';
 import List from '../../../components/Main/List';
 import {ListItem} from '../../../assets/types';
 
 interface ListProps {
-  items: ListItem[];
+  loading: boolean;
+  refreshFn: () => any;
+  getListItems: ListItem[];
 }
 
 const MainWrap = styled.ScrollView`
@@ -27,13 +30,13 @@ const RowView = styled.View`
 
 const Loading = styled.Text``;
 
-export default ({items}: ListProps) => {
+export default ({refreshFn, loading, getListItems}: ListProps) => {
   return (
-    <MainWrap contentInsetAdjustmentBehavior={'never'}>
+    <ScrollContainer refreshFn={refreshFn} loading={loading}>
       <RowWrap>
         <RowView>
-          {items ? (
-            items.map((item, index) => (
+          {getListItems ? (
+            getListItems.map((item, index) => (
               <List key={index} _id={item._id} images={item.images} />
             ))
           ) : (
@@ -41,6 +44,6 @@ export default ({items}: ListProps) => {
           )}
         </RowView>
       </RowWrap>
-    </MainWrap>
+    </ScrollContainer>
   );
 };

@@ -2,11 +2,18 @@ import React, {useState, useEffect} from 'react';
 import {Alert} from 'react-native';
 import styled from 'styled-components/native';
 import {useDispatch} from 'react-redux';
-import {orderRemove, BasketState} from '../../../modules/basket';
+import {orderRemove, BasketItemState} from '../../../modules/basket';
 
 import BasketItem from '../../../components/Basket/BasketItem';
 import Checkbox from '../../../components/Basket/Checkbox';
 import Price from '../../../components/Price';
+import ScrollContainer from '../../../components/ScrollContainer';
+
+interface BasketPresenterState {
+  refreshFn: () => any;
+  baskets: BasketItemState[];
+  loading: boolean;
+}
 
 const BasketWrap = styled.SafeAreaView`
   flex: 1;
@@ -84,7 +91,7 @@ const ButtonText = styled.Text`
 
 const Loading = styled.Text``;
 
-export default ({baskets}: BasketState) => {
+export default ({refreshFn, baskets, loading}: BasketPresenterState) => {
   const [sumPrice, setSumPrice] = useState(0);
   const [allSelectCheck, setAllSelectCheck] = useState(false);
 
@@ -132,7 +139,7 @@ export default ({baskets}: BasketState) => {
           <AllCheckText>전체 선택</AllCheckText>
         </AllCheck>
       </TopView>
-      <ListWrap>
+      <ScrollContainer refreshFn={refreshFn} loading={loading}>
         {baskets ? (
           baskets.map((baskets, index) => (
             <BasketItem
@@ -150,7 +157,7 @@ export default ({baskets}: BasketState) => {
         ) : (
           <Loading>loading...</Loading>
         )}
-      </ListWrap>
+      </ScrollContainer>
       {baskets.length ? (
         <BottomWrap>
           <PriceTag>

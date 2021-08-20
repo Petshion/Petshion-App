@@ -9,7 +9,7 @@ import {FilterItem} from '../../../modules/filter';
 
 import MainPresenter from './MainPresenter';
 
-interface ListItemState {
+interface ListItemsState {
   loading: boolean;
   getListItems: ListItem[];
   getListItemsError?: any;
@@ -17,7 +17,7 @@ interface ListItemState {
 
 export default () => {
   const {filter} = useSelector(filterSelector);
-  const [listItems, setListItems] = useState<ListItemState>({
+  const [listItems, setListItems] = useState<ListItemsState>({
     loading: true,
     getListItems: [],
     getListItemsError: null,
@@ -45,7 +45,7 @@ export default () => {
     });
   };
 
-  useEffect(() => {
+  const getUpdateData = () => {
     if (
       filter.color.length === 0 &&
       filter.size.length === 0 &&
@@ -55,11 +55,11 @@ export default () => {
     } else {
       updateData(filter);
     }
+  };
+
+  useEffect(() => {
+    getUpdateData();
   }, [filter]);
 
-  if (listItems.loading === true) {
-    return null;
-  } else {
-    return <MainPresenter items={listItems.getListItems} />;
-  }
+  return <MainPresenter refreshFn={getUpdateData} {...listItems} />;
 };

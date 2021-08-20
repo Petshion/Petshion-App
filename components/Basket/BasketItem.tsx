@@ -97,8 +97,6 @@ const DeleteText = styled.Text`
 
 const BasketItem = React.memo(
   ({id, title, image, color, size, count, price, checked}: BasketItemState) => {
-    const [checkboxState, setCheckboxState] = useState(false);
-
     const dispatch = useDispatch();
 
     return (

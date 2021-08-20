@@ -1,5 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {basketItems} from '../testItem/dummy';
+
+import {basketItemsDummy} from '../testItem/dummy';
 
 export interface BasketItemState {
   id: string;
@@ -17,13 +18,16 @@ export interface BasketState {
 }
 
 const initialState: BasketState = {
-  baskets: basketItems,
+  baskets: [],
 };
 
 export const basketSlice = createSlice({
   name: 'basket',
   initialState,
   reducers: {
+    insert: (state, {payload: loadBaskets}) => {
+      state.baskets = loadBaskets;
+    },
     allSelect: state => {
       state.baskets.map(baskets => {
         baskets.checked = true;
@@ -65,6 +69,7 @@ export const basketSlice = createSlice({
 });
 
 export const {
+  insert,
   allSelect,
   allDisSelect,
   toggleSelect,
