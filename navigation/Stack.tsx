@@ -1,10 +1,15 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import {
+  createStackNavigator,
+  CardStyleInterpolators,
+} from '@react-navigation/stack';
 
 import Tabs from './Tabs';
 import ProductScreen from '../screens/details/Product';
 import ARScreen from '../screens/details/AR';
+import HowToUseScreen from '../screens/details/HowToUse';
 import HeaderTitle from '../components/AR/HeaderTitle';
+import CloseButton from '../components/CloseButton';
 
 const Stack = createStackNavigator();
 
@@ -24,6 +29,7 @@ export default () => (
         headerShown: false,
       }}
     />
+
     <Stack.Screen
       name="Detail"
       component={ProductScreen}
@@ -43,6 +49,16 @@ export default () => (
         headerShown: true,
         headerTransparent: true,
         headerTintColor: '#000',
+      }}
+    />
+
+    <Stack.Screen
+      name="HowToUse"
+      component={HowToUseScreen}
+      options={{
+        cardStyleInterpolator: CardStyleInterpolators.forBottomSheetAndroid,
+        headerTitle: '사용방법',
+        headerLeft: () => <CloseButton name={'close'} />,
       }}
     />
   </Stack.Navigator>
