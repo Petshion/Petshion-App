@@ -1,7 +1,6 @@
 import React from 'react';
 import Swiper from 'react-native-web-swiper';
 import styled from 'styled-components/native';
-import {Dimensions} from 'react-native';
 
 import RenderItem from '../RenderItem';
 
@@ -13,14 +12,8 @@ interface CarouselItem {
   radius?: number;
 }
 
-const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
-
 const CarouselWrap = styled.View`
   flex: 1;
-  margin: 0 auto;
-  background-color: #a5a3a3;
-  justify-content: center;
-  overflow: hidden;
 `;
 
 export default ({images, width, height, marginTop, radius}: CarouselItem) => {

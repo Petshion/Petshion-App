@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import {Dimensions, StatusBar} from 'react-native';
+import {Alert, Dimensions, StatusBar} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import styled from 'styled-components/native';
@@ -81,7 +81,12 @@ const ButtonText = styled.Text`
 
 export default ({...item}: Product) => {
   const navigation = useNavigation<RootStackParamList>();
-  const refRBSheet = useRef();
+  const refRBSheet = useRef<RBSheet | null>(null);
+
+  const constructionButtonAlert = () =>
+    Alert.alert('팻션', '추후 추가될 기능입니다!', [
+      {text: '확인', onPress: () => console.log('리뷰')},
+    ]);
 
   const goToAR = () => {
     navigation.navigate('AR');
@@ -103,7 +108,7 @@ export default ({...item}: Product) => {
               <Button onPress={goToAR}>
                 <Icon custom name={'ar'} color={'#4e4e4e'} size={24} />
               </Button>
-              <Button>
+              <Button onPress={constructionButtonAlert}>
                 <Icon custom name={'share'} color={'#4e4e4e'} size={24} />
               </Button>
             </IconWrap>
@@ -111,7 +116,7 @@ export default ({...item}: Product) => {
           <Price price={item.price} size={18} color={'#000'} />
           <Review>
             <ReviewRating />
-            <Button>
+            <Button onPress={constructionButtonAlert}>
               <ReviewText>000개 리뷰 보기</ReviewText>
             </Button>
           </Review>
@@ -144,7 +149,7 @@ export default ({...item}: Product) => {
           </Tab.Navigator>
         </TabWrap>
       </ProductWrap>
-      <Button onPress={() => refRBSheet.current.open()}>
+      <Button onPress={() => refRBSheet.current?.open()}>
         <BottomButtonsWrap>
           <ButtonText>주문하기</ButtonText>
         </BottomButtonsWrap>

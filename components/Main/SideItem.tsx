@@ -35,14 +35,14 @@ export default () => {
   return (
     <ItemWrap>
       <ColorCheckbox>
-        <ColorCheck name={'빨강'} color="#d9362a" />
-        <ColorCheck name={'노랑'} color="#efd550" />
-        <ColorCheck name={'초록'} color="#b1db46" />
-        <ColorCheck name={'파랑'} color="#3131f4" />
-        <ColorCheck name={'은'} color="#c6c6c6" />
-        <ColorCheck name={'금'} color="#e6cda7" />
-        <ColorCheck name={'흰'} color="#ffffff" />
-        <ColorCheck name={'검'} color="#000000" />
+        <ColorCheck name={'red'} color="#d9362a" />
+        <ColorCheck name={'yellow'} color="#efd550" />
+        <ColorCheck name={'green'} color="#b1db46" />
+        <ColorCheck name={'blue'} color="#3131f4" />
+        <ColorCheck name={'grey'} color="#c6c6c6" />
+        <ColorCheck name={'ivory'} color="#e6cda7" />
+        <ColorCheck name={'white'} color="#ffffff" />
+        <ColorCheck name={'black'} color="#000000" />
       </ColorCheckbox>
       <SizeCheckWrap>
         <SizeCheck name={'S'} left />

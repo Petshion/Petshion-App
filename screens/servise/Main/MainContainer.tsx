@@ -34,9 +34,9 @@ export default () => {
 
   const updateData = async (filter: FilterItem) => {
     const [getListItems, getListItemsError] = await mainApi.search({
-      color: filter.color.join(','),
-      size: filter.size.join(','),
-      kind: filter.kind.join(','),
+      color: filter.color,
+      size: filter.size,
+      kind: filter.kind,
     });
     setListItems({
       loading: false,

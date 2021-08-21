@@ -6,8 +6,6 @@ import CameraRoll from '@react-native-community/cameraroll';
 import {ViroARSceneNavigator} from 'react-viro';
 import ARView from '../../../components/AR/ARView';
 
-import {Text} from '../../../components/Text';
-
 const VRWrap = styled.View`
   flex: 1;
   align-items: center;
@@ -27,13 +25,11 @@ const CaptureButtonView = styled.View`
 `;
 
 export default () => {
-  const captureRef = useRef(null);
+  const captureRef = useRef<ViewShot>(null);
 
   const getPhotoUri = async () => {
-    let uri = '';
-    if (captureRef.current) {
-      uri = await captureRef.current!.capture();
-    }
+    const uri: any = await captureRef?.current?.capture?.();
+
     return uri;
   };
 
