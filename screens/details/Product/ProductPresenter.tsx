@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import {Alert, Dimensions, StatusBar} from 'react-native';
+import {Alert, Dimensions} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import styled from 'styled-components/native';
@@ -94,7 +94,6 @@ export default ({...item}: Product) => {
 
   return (
     <>
-      <StatusBar barStyle="light-content" />
       <ProductWrap contentInsetAdjustmentBehavior={'never'}>
         <BannerCarousel
           images={item.images}
