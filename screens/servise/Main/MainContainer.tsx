@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import SplashScreen from 'react-native-splash-screen';
 
 import {mainApi} from '../../../api';
 import {ListItem} from '../../../assets/types';
@@ -58,11 +59,12 @@ export default () => {
   };
 
   useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
+  useEffect(() => {
     getUpdateData();
   }, [filter]);
 
-  if (listItems.loading === true) {
-    return <></>;
-  }
   return <MainPresenter refreshFn={getUpdateData} {...listItems} />;
 };

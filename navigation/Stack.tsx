@@ -10,7 +10,7 @@ import ARScreen from '../screens/details/AR';
 import HowToUseScreen from '../screens/details/HowToUse';
 import HeaderTitle from '../components/AR/HeaderTitle';
 import CloseButton from '../components/CloseButton';
-import {useNavigation, NavigationProp} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 const Stack = createStackNavigator();
 
@@ -21,7 +21,7 @@ export default ({isFirstLaunch}) => {
     if (isFirstLaunch) {
       navigation.navigate('HowToUse');
     }
-  }, []);
+  }, [isFirstLaunch]);
 
   return (
     <Stack.Navigator

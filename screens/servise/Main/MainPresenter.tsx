@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import styled from 'styled-components/native';
 
 import ScrollContainer from '../../../components/ScrollContainer';
@@ -11,19 +11,9 @@ interface ListProps {
   refreshFn: () => any;
   getListItems: ListItem[];
 }
-
-const MainWrap = styled.ScrollView`
-  flex: 1;
-  background-color: #fff;
-`;
-
 const RowWrap = styled.View`
-  padding-top: 20px;
-`;
-
-const RowView = styled.View`
   width: 100%;
-  padding: 0 20px;
+  padding: 20px 20px 0 20px;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -43,29 +33,26 @@ const VoidTextColor = styled.Text`
 `;
 
 export default ({refreshFn, loading, getListItems}: ListProps) => {
-  if (getListItems.length) {
-    return (
-      <ScrollContainer refreshFn={refreshFn} loading={loading}>
-        <RowWrap>
-          <RowView>
-            {getListItems ? (
-              getListItems.map((item, index) => (
-                <List key={index} _id={item._id} images={item.images} />
-              ))
-            ) : (
-              <></>
-            )}
-          </RowView>
-        </RowWrap>
-      </ScrollContainer>
-    );
-  } else {
-    return (
-      <VoidView name={'search-off'}>
-        <VoidText>
-          <VoidTextColor>검색 결과</VoidTextColor>가 없는 모양이에요. 😱
-        </VoidText>
-      </VoidView>
-    );
-  }
+  return (
+    <ScrollContainer
+      refreshFn={refreshFn}
+      loading={loading}
+      contentContainerStyle={
+        getListItems.length ? {} : {flexGrow: 1, justifyContent: 'center'}
+      }>
+      <RowWrap>
+        {getListItems.length ? (
+          getListItems.map((item, index) => (
+            <List key={index} _id={item._id} images={item.images} />
+          ))
+        ) : (
+          <VoidView name={'search-off'}>
+            <VoidText>
+              <VoidTextColor>검색 결과</VoidTextColor>가 없는 모양이에요. 😱
+            </VoidText>
+          </VoidView>
+        )}
+      </RowWrap>
+    </ScrollContainer>
+  );
 };

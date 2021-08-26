@@ -28,7 +28,6 @@ const App = () => {
 
   useEffect(() => {
     checkFirstLaunchFn();
-    SplashScreen.hide();
   }, []);
 
   return (

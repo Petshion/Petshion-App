@@ -35,7 +35,7 @@ export default ({navigation, route}: any) => {
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: {
-          borderTopColor: '#4e4e4e',
+          borderTopColor: '#d4d4d4',
         },
       })}
       initialRouteName={'Main'}>

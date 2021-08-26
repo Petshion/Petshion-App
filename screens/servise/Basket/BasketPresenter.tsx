@@ -140,9 +140,9 @@ export default ({refreshFn, baskets, loading}: BasketPresenterState) => {
     allSelectCheckF();
   }, [baskets]);
 
-  if (baskets.length) {
-    return (
-      <BasketWrap>
+  return (
+    <BasketWrap>
+      {baskets.length ? (
         <TopView>
           <AllCheck>
             <Checkbox
@@ -154,25 +154,39 @@ export default ({refreshFn, baskets, loading}: BasketPresenterState) => {
             <AllCheckText>전체 선택</AllCheckText>
           </AllCheck>
         </TopView>
-        <ScrollContainer refreshFn={refreshFn} loading={loading}>
-          {baskets ? (
-            baskets.map((baskets, index) => (
-              <BasketItem
-                key={index}
-                id={baskets.id}
-                title={baskets.title}
-                image={baskets.image}
-                color={baskets.color}
-                size={baskets.size}
-                count={baskets.count}
-                price={baskets.price}
-                checked={baskets.checked}
-              />
-            ))
-          ) : (
-            <Loading>loading...</Loading>
-          )}
-        </ScrollContainer>
+      ) : (
+        <></>
+      )}
+      <ScrollContainer
+        refreshFn={refreshFn}
+        loading={loading}
+        contentContainerStyle={
+          baskets.length ? {} : {flexGrow: 1, justifyContent: 'center'}
+        }>
+        {baskets.length ? (
+          baskets.map((baskets, index) => (
+            <BasketItem
+              key={index}
+              id={baskets.id}
+              title={baskets.title}
+              image={baskets.image}
+              color={baskets.color}
+              size={baskets.size}
+              count={baskets.count}
+              price={baskets.price}
+              checked={baskets.checked}
+            />
+          ))
+        ) : (
+          <VoidView name={'shopping-bag'}>
+            <VoidText>
+              <VoidTextColor>장바구니</VoidTextColor>에 구매하실 옷을
+              담아보세요!
+            </VoidText>
+          </VoidView>
+        )}
+      </ScrollContainer>
+      {baskets.length ? (
         <BottomWrap>
           <PriceTag>
             <PriceTitle>결제 예정 금액</PriceTitle>
@@ -184,15 +198,9 @@ export default ({refreshFn, baskets, loading}: BasketPresenterState) => {
             </OrderButtons>
           </Button>
         </BottomWrap>
-      </BasketWrap>
-    );
-  } else {
-    return (
-      <VoidView name={'shopping-bag'}>
-        <VoidText>
-          <VoidTextColor>장바구니</VoidTextColor>에 구매하실 옷을 담아보세요!
-        </VoidText>
-      </VoidView>
-    );
-  }
+      ) : (
+        <></>
+      )}
+    </BasketWrap>
+  );
 };
