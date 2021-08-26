@@ -5,6 +5,7 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import styled from 'styled-components/native';
 import RBSheet from 'react-native-raw-bottom-sheet';
 
+import ScrollContainer from '../../../components/ScrollContainer';
 import BannerCarousel from '../../../components/Details/BannerCarousel';
 import DescriptionTab from '../../../components/Details/DescriptionTab';
 import SizeTab from '../../../components/Details/SizeTab';
@@ -14,13 +15,15 @@ import ReviewRating from '../../../components/Details/ReviewRating';
 import {Product, RootStackParamList} from '../../../assets/types';
 import SelectOrder from '../../../components/Details/SelectOrder';
 
+interface ProductState {
+  result: Product;
+  loading: boolean;
+  refreshFn: () => any;
+}
+
 const Tab = createMaterialTopTabNavigator();
 
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
-
-const ProductWrap = styled.ScrollView`
-  background-color: #fff;
-`;
 
 const TabWrap = styled.View`
   height: ${HEIGHT}px;
@@ -79,7 +82,7 @@ const ButtonText = styled.Text`
   color: #4e4e4e;
 `;
 
-export default ({...item}: Product) => {
+export default ({refreshFn, loading, result}: ProductState) => {
   const navigation = useNavigation<RootStackParamList>();
   const refRBSheet = useRef<RBSheet | null>(null);
 
@@ -94,15 +97,15 @@ export default ({...item}: Product) => {
 
   return (
     <>
-      <ProductWrap contentInsetAdjustmentBehavior={'never'}>
+      <ScrollContainer refreshFn={refreshFn} loading={loading}>
         <BannerCarousel
-          images={item.images}
+          images={result.images}
           width={WIDTH}
           height={WIDTH / 0.8}
         />
         <Info>
           <FirstLine>
-            <ProductName>{item.title}</ProductName>
+            <ProductName>{result.title}</ProductName>
             <IconWrap>
               <Button onPress={goToAR}>
                 <Icon custom name={'ar'} color={'#4e4e4e'} size={24} />
@@ -112,7 +115,7 @@ export default ({...item}: Product) => {
               </Button>
             </IconWrap>
           </FirstLine>
-          <Price price={item.price} size={18} color={'#000'} />
+          <Price price={result.price} size={18} color={'#000'} />
           <Review>
             <ReviewRating />
             <Button onPress={constructionButtonAlert}>
@@ -137,17 +140,17 @@ export default ({...item}: Product) => {
             initialLayout={{width: WIDTH, height: WIDTH}}>
             <Tab.Screen
               name="Description"
-              children={() => <DescriptionTab content={item.content} />}
+              children={() => <DescriptionTab content={result.content} />}
               options={{tabBarLabel: '상세 설명'}}
             />
             <Tab.Screen
               name="Size"
-              children={() => <SizeTab sizeContent={item.size_content} />}
+              children={() => <SizeTab sizeContent={result.size_content} />}
               options={{tabBarLabel: '사이즈'}}
             />
           </Tab.Navigator>
         </TabWrap>
-      </ProductWrap>
+      </ScrollContainer>
       <Button onPress={() => refRBSheet.current?.open()}>
         <BottomButtonsWrap>
           <ButtonText>주문하기</ButtonText>

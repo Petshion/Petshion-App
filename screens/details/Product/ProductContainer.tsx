@@ -28,6 +28,7 @@ export default ({
       size: '',
     },
   });
+
   const getData = async () => {
     const [getProduct, getProductError] = await mainApi.product(_id);
     setProduct({
@@ -51,9 +52,5 @@ export default ({
     getData();
   }, [_id]);
 
-  if (product.loading === true) {
-    return null;
-  } else {
-    return <ProductPresenter {...product.result} />;
-  }
+  return <ProductPresenter refreshFn={getData} {...product} />;
 };

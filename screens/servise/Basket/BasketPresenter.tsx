@@ -108,6 +108,8 @@ const VoidTextColor = styled.Text`
 export default ({refreshFn, baskets, loading}: BasketPresenterState) => {
   const [sumPrice, setSumPrice] = useState(0);
   const [allSelectCheck, setAllSelectCheck] = useState(false);
+  const checkedList = baskets.map(baskets => baskets.checked);
+  const checkedCheck = checkedList.indexOf(true);
 
   const dispatch = useDispatch();
 
@@ -127,8 +129,7 @@ export default ({refreshFn, baskets, loading}: BasketPresenterState) => {
   };
 
   const allSelectCheckF = () => {
-    const set = baskets.map(baskets => baskets.checked);
-    if (set.indexOf(false) === -1) {
+    if (checkedList.indexOf(false) === -1) {
       setAllSelectCheck(true);
     } else {
       setAllSelectCheck(false);
@@ -192,7 +193,11 @@ export default ({refreshFn, baskets, loading}: BasketPresenterState) => {
             <PriceTitle>결제 예정 금액</PriceTitle>
             <Price kor price={sumPrice} size={24} color="#ffd426" />
           </PriceTag>
-          <Button onPress={orderButtonAlert}>
+          <Button
+            activeOpacity={checkedCheck != -1 ? 0.7 : 1}
+            onPress={
+              checkedCheck != -1 ? orderButtonAlert : () => console.log('nope!')
+            }>
             <OrderButtons>
               <ButtonText>주문하기</ButtonText>
             </OrderButtons>

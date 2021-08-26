@@ -30,7 +30,6 @@ export default ({isFirstLaunch}) => {
         headerStyle: {
           shadowColor: '#cac9ca',
         },
-
         headerBackTitleVisible: false,
       }}>
       <Stack.Screen
@@ -44,16 +43,18 @@ export default ({isFirstLaunch}) => {
         name="Detail"
         component={ProductScreen}
         options={{
+          cardStyleInterpolator: CardStyleInterpolators.forBottomSheetAndroid,
           headerTitle: '',
           headerShown: true,
           headerTransparent: true,
-          headerTintColor: '#fff',
+          headerTintColor: '#000',
         }}
       />
       <Stack.Screen
         name="AR"
         component={ARScreen}
         options={{
+          cardStyleInterpolator: CardStyleInterpolators.forBottomSheetAndroid,
           headerTitle: '',
           headerRight: () => <HeaderTitle />,
           headerShown: true,
@@ -65,6 +66,7 @@ export default ({isFirstLaunch}) => {
         name="TermsOfService"
         component={TermsOfServiceScreen}
         options={{
+          cardStyleInterpolator: CardStyleInterpolators.forBottomSheetAndroid,
           headerTitle: '서비스 이용 약관',
           headerShown: true,
         }}
