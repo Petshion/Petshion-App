@@ -37,7 +37,7 @@ export default () => {
   const [isLogin, setIsLogin] = useState(true);
 
   const serviceButtonAlert = () =>
-    Alert.alert('팻션', '문의는 pation.official@gmail.com 로 보내주세요!', [
+    Alert.alert('팻션', '문의는 petshion.mail@gmail.com 로 보내주세요!', [
       {text: '확인', onPress: () => console.log('문의')},
     ]);
 
@@ -68,7 +68,7 @@ export default () => {
           <ListText>고객센터</ListText>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('TermsOfService')}>
         <View>
           <IconWrap>
             <Icon name="description" color="#4e4e4e" size={20} />

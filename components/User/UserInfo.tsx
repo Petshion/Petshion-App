@@ -5,20 +5,19 @@ import styled from 'styled-components/native';
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 
 const UserInfoWrap = styled.View`
-  width: 100%;
-  height: ${HEIGHT / 3}px;
   margin: 20px 0;
   align-items: center;
-  justify-content: space-between;
 `;
 
 const Profile = styled.Image`
   width: 100px;
   height: 100px;
+  margin-bottom: 14px;
   border-radius: 100px;
 `;
 
 const UserName = styled.Text`
+  margin-bottom: 14px;
   font-family: NanumSquareBold;
   font-size: 18px;
   color: #4e4e4e;

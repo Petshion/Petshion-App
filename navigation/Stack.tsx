@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import {useNavigation} from '@react-navigation/native';
 import {
   createStackNavigator,
   CardStyleInterpolators,
@@ -8,9 +9,9 @@ import Tabs from './Tabs';
 import ProductScreen from '../screens/details/Product';
 import ARScreen from '../screens/details/AR';
 import HowToUseScreen from '../screens/details/HowToUse';
+import TermsOfServiceScreen from '../screens/details/TermsOfService';
 import HeaderTitle from '../components/AR/HeaderTitle';
 import CloseButton from '../components/CloseButton';
-import {useNavigation} from '@react-navigation/native';
 
 const Stack = createStackNavigator();
 
@@ -39,7 +40,6 @@ export default ({isFirstLaunch}) => {
           headerShown: false,
         }}
       />
-
       <Stack.Screen
         name="Detail"
         component={ProductScreen}
@@ -61,7 +61,14 @@ export default ({isFirstLaunch}) => {
           headerTintColor: '#000',
         }}
       />
-
+      <Stack.Screen
+        name="TermsOfService"
+        component={TermsOfServiceScreen}
+        options={{
+          headerTitle: '서비스 이용 약관',
+          headerShown: true,
+        }}
+      />
       <Stack.Screen
         name="HowToUse"
         component={HowToUseScreen}
