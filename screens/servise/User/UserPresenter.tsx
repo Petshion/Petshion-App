@@ -48,6 +48,18 @@ export default () => {
   return (
     <UserWrap>
       {isLogin ? <UserInfo /> : <Login />}
+      {isLogin ? (
+        <TouchableOpacity>
+          <View>
+            <IconWrap>
+              <Icon name="logout" color="#4e4e4e" size={20} />
+            </IconWrap>
+            <ListText>로그아웃</ListText>
+          </View>
+        </TouchableOpacity>
+      ) : (
+        <></>
+      )}
       <TouchableOpacity onPress={serviceButtonAlert}>
         <View>
           <IconWrap>
