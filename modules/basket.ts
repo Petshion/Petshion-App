@@ -1,7 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-import {basketItemsDummy} from '../testItem/dummy';
-
 export interface BasketItemState {
   id: string;
   title: string;

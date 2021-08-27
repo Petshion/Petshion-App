@@ -8,10 +8,8 @@
 
 import React, {useState, useEffect} from 'react';
 import {StatusBar} from 'react-native';
-import {PERMISSIONS, RESULTS, request} from 'react-native-permissions';
 import {NavigationContainer} from '@react-navigation/native';
 import {Provider} from 'react-redux';
-
 import Stack from './navigation/Stack';
 import store from './modules';
 import checkFirstLaunch from './modules/checkFirstLaunch';

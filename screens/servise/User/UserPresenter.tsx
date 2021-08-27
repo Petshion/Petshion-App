@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {TouchableOpacity, Alert} from 'react-native';
 import styled from 'styled-components/native';
 import {useNavigation} from '@react-navigation/native';
+import {useDispatch} from 'react-redux';
+import {remove} from '../../../modules/auth';
 import {RootStackParamList} from '../../../assets/types';
 
 import Icon from '../../../components/Icon';
@@ -32,9 +34,11 @@ const ListText = styled.Text`
   color: #4e4e4e;
 `;
 
-export default () => {
+export default ({AUTH}) => {
   const navigation = useNavigation<RootStackParamList>();
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
+
+  const dispatch = useDispatch();
 
   const serviceButtonAlert = () =>
     Alert.alert('팻션', '문의는 petshion.mail@gmail.com 로 보내주세요!', [
@@ -45,11 +49,19 @@ export default () => {
     navigation.navigate('HowToUse');
   };
 
+  useEffect(() => {
+    if (AUTH === null) {
+      setIsLogin(false);
+    } else {
+      setIsLogin(true);
+    }
+  }, [AUTH]);
+
   return (
     <UserWrap>
-      {isLogin ? <UserInfo /> : <Login />}
+      {isLogin ? <UserInfo name={AUTH?.name} img={AUTH?.img} /> : <Login />}
       {isLogin ? (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => dispatch(remove())}>
           <View>
             <IconWrap>
               <Icon name="logout" color="#4e4e4e" size={20} />

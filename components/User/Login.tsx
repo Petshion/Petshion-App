@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import {useDispatch} from 'react-redux';
+import {insert} from '../../modules/auth';
 
 const LoginWrap = styled.View`
   width: 100%;
   height: 150px;
-
   align-items: center;
   justify-content: center;
 `;
@@ -30,9 +31,21 @@ const ButtonText = styled.Text`
 `;
 
 function Login() {
+  const dispatch = useDispatch();
+
+  const testItem: any = {
+    token: 'wefwe',
+    name: '국수',
+    img: 'https://blog.kakaocdn.net/dn/0mySg/btqCUccOGVk/nQ68nZiNKoIEGNJkooELF1/img.jpg',
+  };
+
+  const loginAction = () => {
+    dispatch(insert(testItem));
+  };
+
   return (
     <LoginWrap>
-      <LoginButton>
+      <LoginButton onPress={loginAction}>
         <ButtonImage source={require('../../assets/g-logo.png')} />
         <ButtonText>구글로 로그인</ButtonText>
       </LoginButton>

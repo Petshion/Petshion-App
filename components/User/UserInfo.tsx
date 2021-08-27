@@ -67,15 +67,15 @@ const ShipText = styled.Text`
   color: #4e4e4e;
 `;
 
-function UserInfo() {
+function UserInfo({name, img}: any) {
   return (
     <UserInfoWrap>
       <Profile
         source={{
-          uri: 'https://source.unsplash.com/random/400x400',
+          uri: img,
         }}
       />
-      <UserName>컨슈머</UserName>
+      <UserName>{name}</UserName>
       <ShipWrap>
         <ShipLeft>
           <ShipTitle>배송중</ShipTitle>

@@ -4,6 +4,8 @@ import {
   createStackNavigator,
   CardStyleInterpolators,
 } from '@react-navigation/stack';
+import {useDispatch} from 'react-redux';
+import {getAUTH, insert} from '../modules/auth';
 
 import Tabs from './Tabs';
 import ProductScreen from '../screens/details/Product';
@@ -18,11 +20,22 @@ const Stack = createStackNavigator();
 export default ({isFirstLaunch}) => {
   const navigation = useNavigation<any>();
 
+  const dispatch = useDispatch();
+
+  const getAUTHFn = async () => {
+    const AUTH = await getAUTH();
+    dispatch(insert(AUTH));
+  };
+
   useEffect(() => {
     if (isFirstLaunch) {
       navigation.navigate('HowToUse');
     }
   }, [isFirstLaunch]);
+
+  useEffect(() => {
+    getAUTHFn();
+  }, []);
 
   return (
     <Stack.Navigator
