@@ -5,6 +5,7 @@ import ViewShot from 'react-native-view-shot';
 import CameraRoll from '@react-native-community/cameraroll';
 import {ViroARSceneNavigator} from 'react-viro';
 import ARView from '../../../components/AR/ARView';
+import {Text} from 'react-native';
 
 const VRWrap = styled.View`
   flex: 1;
@@ -61,7 +62,10 @@ export default () => {
         ref={captureRef}
         options={{format: 'jpg', quality: 1.0}}
         style={{flex: 1}}>
-        <ViroARSceneNavigator autofocus initialScene={{scene: ARView}} />
+        <Text style={{flex: 1, backgroundColor: 'white'}}>
+          weoifjweoifjweiofjwefioj
+        </Text>
+        {/* <ViroARSceneNavigator autofocus initialScene={{scene: ARView}} /> */}
       </ViewShot>
       <CaptureButton onPress={onSave}>
         <CaptureButtonView />
