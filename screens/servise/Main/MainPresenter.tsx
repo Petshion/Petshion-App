@@ -38,10 +38,10 @@ export default ({refreshFn, loading, getListItems}: ListProps) => {
       refreshFn={refreshFn}
       loading={loading}
       contentContainerStyle={
-        getListItems.length ? {} : {flexGrow: 1, justifyContent: 'center'}
+        getListItems?.length ? {} : {flexGrow: 1, justifyContent: 'center'}
       }>
       <RowWrap>
-        {getListItems.length ? (
+        {getListItems?.length ? (
           getListItems.map((item, index) => (
             <List key={index} _id={item._id} images={item.images} />
           ))

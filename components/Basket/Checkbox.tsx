@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {Vibration} from 'react-native';
 import {useDispatch} from 'react-redux';
 import styled from 'styled-components/native';
 import {allSelect, allDisSelect, toggleSelect} from '../../modules/basket';
@@ -26,6 +27,11 @@ export default ({name, checked, id, fillColor, unfillColor}: IconTypes) => {
   const [check, setCheck] = useState(false);
   const dispatch = useDispatch();
 
+  const toggleSelectF = () => {
+    dispatch(toggleSelect(id));
+    Vibration.vibrate(5);
+  };
+
   const allSelectCheckF = () => {
     if (check) {
       dispatch(allDisSelect());
@@ -34,6 +40,7 @@ export default ({name, checked, id, fillColor, unfillColor}: IconTypes) => {
       dispatch(allSelect());
       setCheck(true);
     }
+    Vibration.vibrate(5);
   };
 
   useEffect(() => {
@@ -43,7 +50,7 @@ export default ({name, checked, id, fillColor, unfillColor}: IconTypes) => {
   return (
     <IconButton
       style={{backgroundColor: check ? fillColor : unfillColor}}
-      onPress={id ? () => dispatch(toggleSelect(id)) : allSelectCheckF}>
+      onPress={id ? toggleSelectF : allSelectCheckF}>
       <Icon name={'check'} color={check ? '#a1a1a1' : unfillColor} size={16} />
     </IconButton>
   );

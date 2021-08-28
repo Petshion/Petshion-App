@@ -26,6 +26,7 @@ export default () => {
 
   const getData = async () => {
     const [getListItems, getListItemsError] = await mainApi.listItems();
+    if (getListItemsError) return;
     setListItems({
       loading: false,
       getListItems,
@@ -39,6 +40,7 @@ export default () => {
       size: filter.size,
       kind: filter.kind,
     });
+    if (getListItemsError) return;
     setListItems({
       loading: false,
       getListItems,

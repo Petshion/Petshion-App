@@ -25,12 +25,14 @@ export default ({
       kind: '',
       content: '',
       size_content: [],
-      size: '',
+      size: [],
+      color: [],
     },
   });
 
   const getData = async () => {
     const [getProduct, getProductError] = await mainApi.product(_id);
+    if (getProductError) return;
     setProduct({
       loading: false,
       result: {
@@ -44,6 +46,7 @@ export default ({
         content: getProduct.content,
         size_content: getProduct.size_content,
         size: getProduct.size,
+        color: getProduct.color,
       },
     });
   };

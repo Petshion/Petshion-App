@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Dimensions} from 'react-native';
+import {Dimensions, Vibration} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import styled from 'styled-components/native';
 import Icon from '../../components/Icon';
@@ -28,6 +28,16 @@ const Image = styled.Image`
   height: 100%;
 `;
 
+const IconButton = styled.TouchableOpacity`
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+`;
+
 const IconWrap = styled.View`
   width: 30px;
   height: 30px;
@@ -35,12 +45,7 @@ const IconWrap = styled.View`
   justify-content: center;
   background-color: #fff;
   border-radius: 20px;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
 `;
-
-const IconButton = styled.TouchableOpacity``;
 
 const List = React.memo(({_id, images}: ListItem) => {
   const [select, setSelect] = useState(false);
@@ -59,11 +64,16 @@ const List = React.memo(({_id, images}: ListItem) => {
           }}
         />
       </ImageWrap>
-      <IconWrap>
-        <IconButton onPress={() => setSelect(!select)}>
+      <IconButton
+        onPress={() => {
+          Vibration.vibrate(5);
+          setSelect(!select);
+        }}
+        activeOpacity={0.8}>
+        <IconWrap>
           <Icon name="pets" color={select ? '#ffd426' : '#4e4e4e'} size={26} />
-        </IconButton>
-      </IconWrap>
+        </IconWrap>
+      </IconButton>
     </ListWrap>
   );
 });

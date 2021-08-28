@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
+import {Vibration} from 'react-native';
 import styled from 'styled-components/native';
 import {useDispatch} from 'react-redux';
 import {
@@ -126,11 +127,19 @@ const BasketItem = React.memo(
               {color} / {size}
             </Size>
             <CountView>
-              <CountButton onPress={() => dispatch(minusCount(id))}>
+              <CountButton
+                onPress={() => {
+                  Vibration.vibrate(5);
+                  dispatch(minusCount(id));
+                }}>
                 <Icon name={'remove'} color={'#fff'} size={12} />
               </CountButton>
               <Count>{count}</Count>
-              <CountButton onPress={() => dispatch(plusCount(id))}>
+              <CountButton
+                onPress={() => {
+                  Vibration.vibrate(5);
+                  dispatch(plusCount(id));
+                }}>
                 <Icon name={'add'} color={'#fff'} size={12} />
               </CountButton>
             </CountView>

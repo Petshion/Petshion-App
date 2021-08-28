@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Vibration} from 'react-native';
 import styled from 'styled-components/native';
 import {useDispatch} from 'react-redux';
 import {addColor, removeColor} from '../../modules/filter';
@@ -25,6 +26,7 @@ const SideCheckbox = ({name, color}: CheckboxType) => {
   const dispatch = useDispatch();
 
   const ToggleState = async () => {
+    Vibration.vibrate(5);
     if (checkboxState) {
       setCheckboxState(!checkboxState);
       dispatch(removeColor(name));

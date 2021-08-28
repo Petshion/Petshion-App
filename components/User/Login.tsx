@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import {useDispatch} from 'react-redux';
 import {insert} from '../../modules/auth';
+import {mainApi} from '../../api';
 
 const LoginWrap = styled.View`
   width: 100%;
@@ -37,6 +38,12 @@ function Login() {
     token: 'wefwe',
     name: '국수',
     img: 'https://blog.kakaocdn.net/dn/0mySg/btqCUccOGVk/nQ68nZiNKoIEGNJkooELF1/img.jpg',
+  };
+
+  const getData = async () => {
+    const [getListItems, getListItemsError] = await mainApi.google();
+    console.log(getListItems);
+    console.log(getListItemsError);
   };
 
   const loginAction = () => {

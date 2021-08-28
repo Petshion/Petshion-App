@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Vibration} from 'react-native';
 import styled from 'styled-components/native';
 import {useDispatch} from 'react-redux';
 import {addKind, removeKind} from '../../modules/filter';
@@ -24,6 +25,7 @@ export default ({left, right, name}: SizeCheck) => {
   const dispatch = useDispatch();
 
   const ToggleState = async () => {
+    Vibration.vibrate(5);
     if (checkState) {
       setCheckState(!checkState);
       dispatch(removeKind(name));

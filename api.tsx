@@ -24,4 +24,5 @@ export const mainApi = {
   listItems: () => getAnything('/main'),
   product: (id: any) => getAnything(`/product/${id}`),
   search: (query: any) => getAnything('/search', query),
+  google: () => getAnything('/auth/google'),
 };

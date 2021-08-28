@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
-import {Alert, Dimensions, StyleSheet} from 'react-native';
+import {Alert, Dimensions, StyleSheet, Vibration} from 'react-native';
 import styled from 'styled-components/native';
 import RNPickerSelect from 'react-native-picker-select';
 import Icon from '../Icon';
 
-import {Text} from '../Text';
 import {useNavigation} from '@react-navigation/native';
 import {RootStackParamList} from '../../assets/types';
 
@@ -91,10 +90,16 @@ export default ({color, size}) => {
   const navigation = useNavigation<RootStackParamList>();
 
   const minus = () => {
+    Vibration.vibrate(5);
     if (count === 1) {
       return;
     }
     setCount(count - 1);
+  };
+
+  const plus = () => {
+    Vibration.vibrate(5);
+    setCount(count + 1);
   };
 
   const orderButtonAlert = () =>
@@ -143,7 +148,7 @@ export default ({color, size}) => {
             <Icon name={'remove'} color={'#fff'} size={18} />
           </CountButton>
           <Count>{count}</Count>
-          <CountButton onPress={() => setCount(count + 1)}>
+          <CountButton onPress={plus}>
             <Icon name={'add'} color={'#fff'} size={18} />
           </CountButton>
         </CountView>
