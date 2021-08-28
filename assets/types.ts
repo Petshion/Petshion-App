@@ -12,7 +12,8 @@ export interface Product {
   kind: string;
   content: string;
   size_content: string[][];
-  size: string;
+  size: string[];
+  color: string[];
 }
 
 export interface RootStackParamList {

@@ -83,7 +83,7 @@ const CountButton = styled.TouchableOpacity`
   background-color: #4e4e4e;
 `;
 
-export default () => {
+export default ({color, size}) => {
   const [selectedColor, setSelectedColor] = useState();
   const [selectedSize, setSelectedSize] = useState();
   const [count, setCount] = useState(1);
@@ -113,11 +113,11 @@ export default () => {
         useNativeAndroidPickerStyle={false}
         Icon={() => <Icon name={'expand-more'} color={'#000'} size={25} />}
         style={pickerSelectStyles}
-        items={[
-          {label: '검은색', value: '검은색'},
-          {label: '노랑색', value: '노랑색'},
-          {label: '파랑색', value: '파랑색'},
-        ]}
+        items={color.map(color => {
+          let tempColor = {};
+          tempColor = {label: color, value: color};
+          return tempColor;
+        })}
       />
       <RNPickerSelect
         onValueChange={(itemValue, itemIndex) => setSelectedSize(itemValue)}
@@ -128,11 +128,11 @@ export default () => {
         useNativeAndroidPickerStyle={false}
         Icon={() => <Icon name={'expand-more'} color={'#000'} size={25} />}
         style={pickerSelectStyles}
-        items={[
-          {label: 'S', value: 'S'},
-          {label: 'M', value: 'M'},
-          {label: 'L', value: 'L'},
-        ]}
+        items={size.map(size => {
+          let tempSize = {};
+          tempSize = {label: size, value: size};
+          return tempSize;
+        })}
       />
       <SelectedCountView>
         <SelectedText>

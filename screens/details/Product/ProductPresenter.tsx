@@ -169,7 +169,7 @@ export default ({refreshFn, loading, result}: ProductState) => {
             backgroundColor: 'transparent',
           },
         }}>
-        <SelectOrder />
+        <SelectOrder color={result.color} size={result.size} />
       </RBSheet>
     </>
   );
