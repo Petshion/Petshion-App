@@ -1,12 +1,6 @@
 import React, {Component} from 'react';
 
-import {StyleSheet} from 'react-native';
-
-import styled from 'styled-components/native';
-
 import {ViroARScene, ViroText, ViroConstants, ViroImage} from 'react-viro';
-
-const Loading = styled.Text``;
 
 export default class ARView extends Component {
   constructor() {
@@ -29,7 +23,7 @@ export default class ARView extends Component {
           mipmap
           resizeMode="ScaleToFill"
           position={[0, 0, -1]}
-          placeholderSource={require('../../assets/loading-buffering.gif')}
+          //placeholderSource={require('../../assets/loading-buffering.gif')}
           source={{
             uri: 'https://www.unger.dev/assets/200ok_logo_big.png',
           }}

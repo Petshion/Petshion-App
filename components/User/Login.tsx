@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {Linking, Platform} from 'react-native';
 import styled from 'styled-components/native';
 import {useDispatch} from 'react-redux';
 import {insert} from '../../modules/auth';
-import {mainApi} from '../../api';
+
+import {serverURL} from '../../api';
 
 const LoginWrap = styled.View`
   width: 100%;
@@ -34,25 +36,40 @@ const ButtonText = styled.Text`
 function Login() {
   const dispatch = useDispatch();
 
-  const testItem: any = {
-    token: 'wefwe',
-    name: '국수',
-    img: 'https://blog.kakaocdn.net/dn/0mySg/btqCUccOGVk/nQ68nZiNKoIEGNJkooELF1/img.jpg',
+  useEffect(() => {
+    // Add event listener to handle OAuthLogin:// URLs
+    Linking.addEventListener('url', handleOpenURL);
+    // Launched from an external URL
+    Linking.getInitialURL().then(url => {
+      if (url) {
+        handleOpenURL({url});
+      }
+    });
+
+    return () => Linking.removeEventListener('url', handleOpenURL);
+  });
+
+  const handleOpenURL = ({url}) => {
+    // Extract stringified user string out of the URL
+    const [, user_string] = url.match(/user=([^#]+)/);
+    dispatch(insert(JSON.parse(decodeURI(user_string))));
   };
 
-  const getData = async () => {
-    const [getListItems, getListItemsError] = await mainApi.google();
-    console.log(getListItems);
-    console.log(getListItemsError);
-  };
-
-  const loginAction = () => {
-    dispatch(insert(testItem));
+  const openURL = () => {
+    // Use SafariView on iOS
+    /* if (Platform.OS === 'ios') {
+      SafariView.show({
+        url: url,
+        fromBottom: true,
+      });
+    } */
+    // Or Linking.openURL on Android
+    Linking.openURL(`${serverURL}/auth/google`);
   };
 
   return (
     <LoginWrap>
-      <LoginButton onPress={loginAction}>
+      <LoginButton onPress={openURL}>
         <ButtonImage source={require('../../assets/g-logo.png')} />
         <ButtonText>구글로 로그인</ButtonText>
       </LoginButton>

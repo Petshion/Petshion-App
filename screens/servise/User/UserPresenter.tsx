@@ -59,7 +59,11 @@ export default ({AUTH}) => {
 
   return (
     <UserWrap>
-      {isLogin ? <UserInfo name={AUTH?.name} img={AUTH?.img} /> : <Login />}
+      {isLogin ? (
+        <UserInfo name={AUTH?.userName} img={AUTH?.userImage} />
+      ) : (
+        <Login />
+      )}
       {isLogin ? (
         <TouchableOpacity onPress={() => dispatch(remove())}>
           <View>

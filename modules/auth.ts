@@ -2,9 +2,10 @@ import {createSlice} from '@reduxjs/toolkit';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export interface AUTHItem {
-  token: string;
-  name: string;
-  img: string;
+  access_token: string;
+  id: string;
+  userName: string;
+  userImage: string;
 }
 
 export interface AUTHState {

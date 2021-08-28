@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+export const serverURL = 'https://petshion.herokuapp.com';
+
 const makeRequest = (path: any, params: any) =>
-  axios.get(`https://petshion.herokuapp.com${path}`, {
+  axios.get(serverURL + path, {
     params: {
       ...params,
     },
@@ -24,5 +26,4 @@ export const mainApi = {
   listItems: () => getAnything('/main'),
   product: (id: any) => getAnything(`/product/${id}`),
   search: (query: any) => getAnything('/search', query),
-  google: () => getAnything('/auth/google'),
 };
