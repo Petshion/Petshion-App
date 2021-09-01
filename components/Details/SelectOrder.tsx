@@ -6,6 +6,9 @@ import Icon from '../Icon';
 
 import {useNavigation} from '@react-navigation/native';
 import {RootStackParamList} from '../../assets/types';
+import {useSelector} from 'react-redux';
+import {authSelector} from '../../modules/hooks';
+import {basketApi} from '../../api';
 
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 
@@ -82,7 +85,8 @@ const CountButton = styled.TouchableOpacity`
   background-color: #4e4e4e;
 `;
 
-export default ({color, size}) => {
+export default ({id, color, size}) => {
+  const {AUTHItem} = useSelector(authSelector);
   const [selectedColor, setSelectedColor] = useState();
   const [selectedSize, setSelectedSize] = useState();
   const [count, setCount] = useState(1);
@@ -102,10 +106,40 @@ export default ({color, size}) => {
     setCount(count + 1);
   };
 
+  const buttonDisabled = () => {
+    if (selectedColor && selectedSize) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
   const orderButtonAlert = () =>
     Alert.alert('팻션', '주문을 완료하였습니다.', [
       {text: '확인', onPress: () => navigation.navigate('Main')},
     ]);
+
+  const pleaseLogin = () => {
+    Alert.alert('팻션', '로그인이 필요한 서비스입니다.', [
+      {text: '확인', onPress: () => navigation.navigate('User')},
+    ]);
+  };
+
+  const basketButton = async () => {
+    if (!AUTHItem) {
+      pleaseLogin();
+      return;
+    }
+    await basketApi.addBasket(
+      {
+        product_id: id,
+        selected_color: selectedColor,
+        selected_size: selectedSize,
+        selected_count: count,
+      },
+      AUTHItem?.access_token,
+    );
+  };
 
   return (
     <SelectOrderWrap>
@@ -154,12 +188,12 @@ export default ({color, size}) => {
         </CountView>
       </SelectedCountView>
       <BottomWrap>
-        <Button>
+        <Button onPress={basketButton} disabled={buttonDisabled()}>
           <BasketButton>
             <BasketText>장바구니</BasketText>
           </BasketButton>
         </Button>
-        <Button onPress={orderButtonAlert}>
+        <Button onPress={orderButtonAlert} disabled={buttonDisabled()}>
           <OrderButton>
             <OrderText>주문하기</OrderText>
           </OrderButton>

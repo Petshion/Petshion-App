@@ -43,7 +43,12 @@ export default ({refreshFn, loading, getListItems}: ListProps) => {
       <RowWrap>
         {getListItems?.length ? (
           getListItems.map((item, index) => (
-            <List key={index} _id={item._id} images={item.images} />
+            <List
+              key={index}
+              _id={item._id}
+              images={item.images}
+              checked={false}
+            />
           ))
         ) : (
           <VoidView name={'search-off'}>

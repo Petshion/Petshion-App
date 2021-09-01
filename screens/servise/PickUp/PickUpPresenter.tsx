@@ -1,26 +1,19 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-import {Item} from '../../../testItem/dummy';
+import ScrollContainer from '../../../components/ScrollContainer';
 import List from '../../../components/Main/List';
+import {ListItem} from '../../../assets/types';
 import VoidView from '../../../components/VoidView';
 
 interface ListProps {
-  items: Item[];
+  loading: boolean;
+  refreshFn: () => any;
+  getListItems: ListItem[];
 }
-
-const MainWrap = styled.ScrollView`
-  flex: 1;
-  background-color: #fff;
-`;
-
 const RowWrap = styled.View`
-  padding-top: 20px;
-`;
-
-const RowView = styled.View`
   width: 100%;
-  padding: 0 20px;
+  padding: 20px 20px 0 20px;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -39,26 +32,32 @@ const VoidTextColor = styled.Text`
   color: #ffd426;
 `;
 
-export default ({items}: ListProps) => {
-  if (items.length) {
-    return (
-      <MainWrap contentInsetAdjustmentBehavior={'never'}>
-        <RowWrap>
-          <RowView>
-            {items.map((item: Item, index) => (
-              <List key={index} _id={item._id} images={item.image} />
-            ))}
-          </RowView>
-        </RowWrap>
-      </MainWrap>
-    );
-  } else {
-    return (
-      <VoidView name={'pets'}>
-        <VoidText>
-          관심 있는 옷을 <VoidTextColor>발 도장</VoidTextColor> 찍어보세요!
-        </VoidText>
-      </VoidView>
-    );
-  }
+export default ({refreshFn, loading, getListItems}: ListProps) => {
+  return (
+    <ScrollContainer
+      refreshFn={refreshFn}
+      loading={loading}
+      contentContainerStyle={
+        getListItems?.length ? {} : {flexGrow: 1, justifyContent: 'center'}
+      }>
+      <RowWrap>
+        {getListItems?.length ? (
+          getListItems.map((item, index) => (
+            <List
+              key={index}
+              _id={item._id}
+              images={item.images}
+              checked={true}
+            />
+          ))
+        ) : (
+          <VoidView name={'pets'}>
+            <VoidText>
+              관심 있는 옷을 <VoidTextColor>발 도장</VoidTextColor> 찍어보세요!
+            </VoidText>
+          </VoidView>
+        )}
+      </RowWrap>
+    </ScrollContainer>
+  );
 };

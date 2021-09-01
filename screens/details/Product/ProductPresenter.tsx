@@ -107,7 +107,7 @@ export default ({refreshFn, loading, result}: ProductState) => {
           <FirstLine>
             <ProductName>{result.title}</ProductName>
             <IconWrap>
-              <Button onPress={goToAR}>
+              <Button onPress={constructionButtonAlert /* goToAR */}>
                 <Icon custom name={'ar'} color={'#4e4e4e'} size={24} />
               </Button>
               <Button onPress={constructionButtonAlert}>
@@ -151,7 +151,7 @@ export default ({refreshFn, loading, result}: ProductState) => {
           </Tab.Navigator>
         </TabWrap>
       </ScrollContainer>
-      <Button onPress={() => refRBSheet.current?.open()}>
+      <Button onPress={() => refRBSheet.current?.open()} disabled={loading}>
         <BottomButtonsWrap>
           <ButtonText>주문하기</ButtonText>
         </BottomButtonsWrap>
@@ -169,7 +169,7 @@ export default ({refreshFn, loading, result}: ProductState) => {
             backgroundColor: 'transparent',
           },
         }}>
-        <SelectOrder color={result.color} size={result.size} />
+        <SelectOrder id={result._id} color={result.color} size={result.size} />
       </RBSheet>
     </>
   );

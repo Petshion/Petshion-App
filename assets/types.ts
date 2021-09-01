@@ -1,6 +1,7 @@
 export interface ListItem {
   _id: string;
   images: string;
+  checked: boolean;
 }
 
 export interface Product {

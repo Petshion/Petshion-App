@@ -1,9 +1,12 @@
-import React, {useState} from 'react';
-import {Dimensions, Vibration} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {Alert, Dimensions, Vibration} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import styled from 'styled-components/native';
 import Icon from '../../components/Icon';
 import {ListItem, RootStackParamList} from '../../assets/types';
+import {useSelector} from 'react-redux';
+import {authSelector} from '../../modules/hooks';
+import {basketApi} from '../../api';
 
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 
@@ -47,13 +50,39 @@ const IconWrap = styled.View`
   border-radius: 20px;
 `;
 
-const List = React.memo(({_id, images}: ListItem) => {
+const List = React.memo(({_id, images, checked}: ListItem) => {
+  const {AUTHItem} = useSelector(authSelector);
   const [select, setSelect] = useState(false);
   const navigation = useNavigation<RootStackParamList>();
+
+  const pleaseLogin = () => {
+    Alert.alert('팻션', '로그인이 필요한 서비스입니다.', [
+      {text: '확인', onPress: () => navigation.navigate('User')},
+    ]);
+  };
 
   const goToDetail = () => {
     navigation.navigate('Detail', {_id});
   };
+
+  const toggleSwitch = () => {
+    Vibration.vibrate(5);
+    if (!AUTHItem) {
+      pleaseLogin();
+      return;
+    }
+    if (select) {
+      basketApi.addBasket(_id, AUTHItem?.access_token);
+      setSelect(false);
+    } else {
+      basketApi.removeBasket(_id, AUTHItem?.access_token);
+      setSelect(true);
+    }
+  };
+
+  useEffect(() => {
+    setSelect(checked);
+  }, [checked]);
 
   return (
     <ListWrap onPress={goToDetail}>
@@ -64,12 +93,7 @@ const List = React.memo(({_id, images}: ListItem) => {
           }}
         />
       </ImageWrap>
-      <IconButton
-        onPress={() => {
-          Vibration.vibrate(5);
-          setSelect(!select);
-        }}
-        activeOpacity={0.8}>
+      <IconButton onPress={toggleSwitch} activeOpacity={0.8}>
         <IconWrap>
           <Icon name="pets" color={select ? '#ffd426' : '#4e4e4e'} size={26} />
         </IconWrap>
