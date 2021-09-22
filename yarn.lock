@@ -1757,6 +1757,11 @@ acorn@^8.2.4:
   resolved "https://registry.npmjs.org/acorn/-/acorn-8.4.1.tgz"
   integrity sha512-asabaBSkEKosYKMITunzX177CXxQ4Q8BSSzMTKD+FefUhipQC70gfW5SiUDhYQ3vk8G+81HqQk7Fv9OXwwn9KA==
 
+add@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/add/-/add-2.0.6.tgz#248f0a9f6e5a528ef2295dbeec30532130ae2235"
+  integrity sha1-JI8Kn25aUo7yKV2+7DBTITCuIjU=
+
 agent-base@6:
   version "6.0.2"
   resolved "https://registry.npmjs.org/agent-base/-/agent-base-6.0.2.tgz"
@@ -6195,6 +6200,19 @@ react-is@^16.13.0, react-is@^16.13.1, react-is@^16.7.0, react-is@^16.8.1:
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-native-autoheight-webview@^1.5.8:
+  version "1.5.8"
+  resolved "https://registry.yarnpkg.com/react-native-autoheight-webview/-/react-native-autoheight-webview-1.5.8.tgz#afcbe65dfefcce4e2088c9aff9fee23dcd18aadf"
+  integrity sha512-6+LY0a47AsnfnGgqMP2JzNVgX0/sGnkgq7UV39OKgUf2Im/glFjUOggYm8EiyzmA93gb9tYVB1mRTORElWAiGQ==
+  dependencies:
+    prop-types "^15.7.2"
+
+"react-native-camera@git+https://git@github.com/react-native-community/react-native-camera.git":
+  version "4.2.0"
+  resolved "git+https://git@github.com/react-native-community/react-native-camera.git#0defb57b4907fe254fea6048010698f3e65be83e"
+  dependencies:
+    prop-types "^15.6.2"
+
 react-native-codegen@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/react-native-codegen/-/react-native-codegen-0.0.6.tgz#b3173faa879cf71bfade8d030f9c4698388f6909"
@@ -6464,13 +6482,6 @@ react-test-renderer@17.0.2:
     react-is "^17.0.2"
     react-shallow-renderer "^16.13.1"
     scheduler "^0.20.2"
-
-react-viro@^2.17.0:
-  version "2.17.0"
-  resolved "https://registry.yarnpkg.com/react-viro/-/react-viro-2.17.0.tgz#2e46dbf33111c79eaa6af58e008b1eb7f900cd00"
-  integrity sha512-5100TePD0X62DRCF1ELOOz/J0b+NJNcQHlppqFW4OHwzxI2ONfSKWAkwooYseinHgSWqe12z5jWf51aF7aHuDQ==
-  dependencies:
-    prop-types "^15.5.10"
 
 react@17.0.2:
   version "17.0.2"
@@ -7894,5 +7905,5 @@ yargs@^16.0.3, yargs@^16.1.1:
 
 yarn@^1.22.11:
   version "1.22.11"
-  resolved "https://registry.npmjs.org/yarn/-/yarn-1.22.11.tgz"
+  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.22.11.tgz#d0104043e7349046e0e2aec977c24be106925ed6"
   integrity sha512-AWje4bzqO9RUn3sdnM5N8n4ZJ0BqCc/kqFJvpOI5/EVkINXui0yuvU7NDCEF//+WaxHuNay2uOHxA4+tq1P3cg==

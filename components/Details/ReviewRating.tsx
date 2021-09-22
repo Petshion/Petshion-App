@@ -3,7 +3,11 @@ import {Rating} from 'react-native-ratings';
 
 const IMAGE = require('../../assets/dogfoot.png');
 
-export default () => {
+type RateState = {
+  rate: number;
+};
+
+export default ({rate}: RateState) => {
   return (
     <Rating
       type="custom"
@@ -12,7 +16,7 @@ export default () => {
       ratingCount={5}
       imageSize={20}
       fractions={2}
-      startingValue={3}
+      startingValue={rate}
       readonly
     />
   );

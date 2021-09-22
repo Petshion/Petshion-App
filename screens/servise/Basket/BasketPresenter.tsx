@@ -168,9 +168,9 @@ export default ({refreshFn, baskets, loading}: BasketPresenterState) => {
           baskets.map((baskets, index) => (
             <BasketItem
               key={index}
-              id={baskets.id}
+              _id={baskets._id}
               title={baskets.title}
-              image={baskets.image}
+              thumbnail_image={baskets.thumbnail_image}
               color={baskets.color}
               size={baskets.size}
               count={baskets.count}

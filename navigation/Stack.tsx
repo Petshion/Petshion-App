@@ -27,11 +27,11 @@ export default ({isFirstLaunch}) => {
     dispatch(insert(AUTH));
   };
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (isFirstLaunch) {
       navigation.navigate('HowToUse');
     }
-  }, [isFirstLaunch]);
+  }, [isFirstLaunch]); */
 
   useEffect(() => {
     getAUTHFn();

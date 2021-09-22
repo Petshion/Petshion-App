@@ -60,7 +60,7 @@ export default ({AUTH}) => {
   return (
     <UserWrap>
       {isLogin ? (
-        <UserInfo name={AUTH?.userName} img={AUTH?.userImage} />
+        <UserInfo name={AUTH?.username} img={AUTH?.image} />
       ) : (
         <Login />
       )}

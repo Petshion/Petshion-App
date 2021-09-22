@@ -1,44 +1,41 @@
 import React from 'react';
-import {useWindowDimensions} from 'react-native';
 import RenderHtml from 'react-native-render-html';
+import AutoHeightWebView from 'react-native-autoheight-webview';
 import styled from 'styled-components/native';
 
 interface Content {
   content: string;
 }
 
-const View = styled.View`
-  flex: 1;
+const ScrollView = styled.ScrollView`
   padding: 0 20px;
   background-color: #fff;
 `;
 
-const Text = styled.Text``;
-
-const source = {
-  html: `<img
-  src="https://pds.joins.com/news/component/htmlphoto_mmdata/201310/28/htm_2013102810154430103011.jpg"
-  style="width: 100%; height: auto;"
-  />`,
-};
-
-const renderersProps = {
-  img: {
-    enableExperimentalPercentWidth: true,
-  },
-};
+const StyledAutoHeightWebView = styled(AutoHeightWebView)`
+  width: 100%;
+`;
 
 export default ({content}: Content) => {
-  const {width} = useWindowDimensions();
+  const source = {
+    html: `<img
+    src="${content}""
+    style="width: 100%; height: auto;"
+    />`,
+  };
 
   return (
-    <View>
-      <Text>{content}</Text>
-      {/* <RenderHtml
-        contentWidth={width - 40}
+    <ScrollView nestedScrollEnabled={true}>
+      <StyledAutoHeightWebView
+        cacheEnabled={true}
+        scrollEnabled={false}
+        showsVerticalScrollIndicator={false}
+        originWhitelist={['*']}
         source={source}
-        renderersProps={renderersProps}
-      /> */}
-    </View>
+        startInLoadingState={true}
+        pointerEvents="none"
+        style={{marginBottom: 100}}
+      />
+    </ScrollView>
   );
 };

@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react';
+import {Alert} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 import {insert} from '../../../modules/basket';
 import {authSelector, basketSelector} from '../../../modules/hooks';
@@ -14,11 +16,25 @@ export default () => {
 
   const dispatch = useDispatch();
 
+  const navigation = useNavigation<any>();
+
+  const pleaseLogin = () => {
+    Alert.alert('팻션', '로그인이 필요한 서비스입니다.', [
+      {text: '확인', onPress: () => navigation.navigate('User')},
+    ]);
+  };
+
   const getData = async () => {
-    // await console.log(basketApi.getBaskets());
-    /* const [getListItems, getListItemsError] = await basketApi.getBaskets();
-     */
-    dispatch(insert(basketItemsDummy));
+    if (!AUTHItem) {
+      setLoading(false);
+      pleaseLogin();
+      return;
+    }
+    const [getListItems, getListItemsError] = await basketApi.getBaskets(
+      AUTHItem.token,
+    );
+
+    dispatch(insert(getListItems.basket));
     setLoading(false);
   };
 

@@ -46,8 +46,8 @@ export default ({refreshFn, loading, getListItems}: ListProps) => {
             <List
               key={index}
               _id={item._id}
-              images={item.images}
-              checked={false}
+              thumbnail_image={item.thumbnail_image}
+              checked={item.checked}
             />
           ))
         ) : (

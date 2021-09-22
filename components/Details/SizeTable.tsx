@@ -20,7 +20,7 @@ interface TableItems {
 }
 
 const View = styled.View`
-  flex: 1;
+  min-height: 160px;
   background-color: #fff;
 `;
 

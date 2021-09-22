@@ -6,7 +6,7 @@ import Icon from '../../components/Icon';
 import {ListItem, RootStackParamList} from '../../assets/types';
 import {useSelector} from 'react-redux';
 import {authSelector} from '../../modules/hooks';
-import {basketApi} from '../../api';
+import {pawMarkApi} from '../../api';
 
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 
@@ -50,7 +50,7 @@ const IconWrap = styled.View`
   border-radius: 20px;
 `;
 
-const List = React.memo(({_id, images, checked}: ListItem) => {
+const List = React.memo(({_id, thumbnail_image, checked}: ListItem) => {
   const {AUTHItem} = useSelector(authSelector);
   const [select, setSelect] = useState(false);
   const navigation = useNavigation<RootStackParamList>();
@@ -71,11 +71,12 @@ const List = React.memo(({_id, images, checked}: ListItem) => {
       pleaseLogin();
       return;
     }
+    console.log(AUTHItem?.token);
     if (select) {
-      basketApi.addBasket(_id, AUTHItem?.access_token);
+      pawMarkApi.removePawmark({product_id: _id}, AUTHItem?.token);
       setSelect(false);
     } else {
-      basketApi.removeBasket(_id, AUTHItem?.access_token);
+      pawMarkApi.addPawmark({product_id: _id}, AUTHItem?.token);
       setSelect(true);
     }
   };
@@ -89,7 +90,7 @@ const List = React.memo(({_id, images, checked}: ListItem) => {
       <ImageWrap>
         <Image
           source={{
-            uri: images,
+            uri: thumbnail_image,
           }}
         />
       </ImageWrap>

@@ -5,7 +5,7 @@ import {mainApi} from '../../../api';
 import {ListItem} from '../../../assets/types';
 
 import {useSelector} from 'react-redux';
-import {filterSelector} from '../../../modules/hooks';
+import {authSelector, filterSelector} from '../../../modules/hooks';
 import {FilterItem} from '../../../modules/filter';
 
 import MainPresenter from './MainPresenter';
@@ -17,6 +17,7 @@ interface ListItemsState {
 }
 
 export default () => {
+  const {AUTHItem} = useSelector(authSelector);
   const {filter} = useSelector(filterSelector);
   const [listItems, setListItems] = useState<ListItemsState>({
     loading: true,
@@ -65,6 +66,7 @@ export default () => {
   }, []);
 
   useEffect(() => {
+    console.log(filter);
     getUpdateData();
   }, [filter]);
 

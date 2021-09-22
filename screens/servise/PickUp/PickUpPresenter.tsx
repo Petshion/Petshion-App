@@ -45,8 +45,8 @@ export default ({refreshFn, loading, getListItems}: ListProps) => {
           getListItems.map((item, index) => (
             <List
               key={index}
-              _id={item._id}
-              images={item.images}
+              _id={item.product_id}
+              thumbnail_image={item.thumbnail_image}
               checked={true}
             />
           ))

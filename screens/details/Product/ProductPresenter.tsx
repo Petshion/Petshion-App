@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import {Alert, Dimensions} from 'react-native';
+import {Alert, Dimensions, ScrollView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import styled from 'styled-components/native';
@@ -92,12 +92,18 @@ export default ({refreshFn, loading, result}: ProductState) => {
     ]);
 
   const goToAR = () => {
-    navigation.navigate('AR');
+    navigation.navigate('AR', {AR_image: result.AR_image});
   };
 
   return (
     <>
-      <ScrollContainer refreshFn={refreshFn} loading={loading}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+        stickyHeaderIndices={[2]}
+        style={{
+          backgroundColor: 'white',
+        }}>
         <BannerCarousel
           images={result.images}
           width={WIDTH}
@@ -107,7 +113,7 @@ export default ({refreshFn, loading, result}: ProductState) => {
           <FirstLine>
             <ProductName>{result.title}</ProductName>
             <IconWrap>
-              <Button onPress={constructionButtonAlert /* goToAR */}>
+              <Button onPress={goToAR /* goToAR */}>
                 <Icon custom name={'ar'} color={'#4e4e4e'} size={24} />
               </Button>
               <Button onPress={constructionButtonAlert}>
@@ -117,7 +123,7 @@ export default ({refreshFn, loading, result}: ProductState) => {
           </FirstLine>
           <Price price={result.price} size={18} color={'#000'} />
           <Review>
-            <ReviewRating />
+            <ReviewRating rate={result.rate} />
             <Button onPress={constructionButtonAlert}>
               <ReviewText>000개 리뷰 보기</ReviewText>
             </Button>
@@ -150,7 +156,7 @@ export default ({refreshFn, loading, result}: ProductState) => {
             />
           </Tab.Navigator>
         </TabWrap>
-      </ScrollContainer>
+      </ScrollView>
       <Button onPress={() => refRBSheet.current?.open()} disabled={loading}>
         <BottomButtonsWrap>
           <ButtonText>주문하기</ButtonText>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Vibration} from 'react-native';
 import styled from 'styled-components/native';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {
   minusCount,
   plusCount,
@@ -12,6 +12,8 @@ import {
 import Icon from '../Icon';
 import Price from '../Price';
 import Checkbox from './Checkbox';
+import {basketApi} from '../../api';
+import {authSelector} from '../../modules/hooks';
 
 const ItemWrap = styled.View`
   width: 100%;
@@ -97,8 +99,24 @@ const DeleteText = styled.Text`
 `;
 
 const BasketItem = React.memo(
-  ({id, title, image, color, size, count, price, checked}: BasketItemState) => {
+  ({
+    _id,
+    title,
+    thumbnail_image,
+    color,
+    size,
+    count,
+    price,
+    checked,
+  }: BasketItemState) => {
     const dispatch = useDispatch();
+
+    const {AUTHItem} = useSelector(authSelector);
+
+    const removeBas = () => {
+      basketApi.removeBasket({_id: _id}, AUTHItem?.token);
+      dispatch(remove(_id));
+    };
 
     return (
       <ItemWrap>
@@ -106,7 +124,7 @@ const BasketItem = React.memo(
           <CheckboxWrap>
             <Checkbox
               name="check"
-              id={id}
+              id={_id}
               checked={checked}
               fillColor="#efde5a"
               unfillColor="#FFFFFF"
@@ -115,7 +133,7 @@ const BasketItem = React.memo(
           <ImageWrap>
             <Image
               source={{
-                uri: image,
+                uri: thumbnail_image,
               }}
             />
           </ImageWrap>
@@ -130,7 +148,7 @@ const BasketItem = React.memo(
               <CountButton
                 onPress={() => {
                   Vibration.vibrate(5);
-                  dispatch(minusCount(id));
+                  dispatch(minusCount(_id));
                 }}>
                 <Icon name={'remove'} color={'#fff'} size={12} />
               </CountButton>
@@ -138,7 +156,7 @@ const BasketItem = React.memo(
               <CountButton
                 onPress={() => {
                   Vibration.vibrate(5);
-                  dispatch(plusCount(id));
+                  dispatch(plusCount(_id));
                 }}>
                 <Icon name={'add'} color={'#fff'} size={12} />
               </CountButton>
@@ -146,7 +164,7 @@ const BasketItem = React.memo(
           </LeftTextWrap>
         </ItemLeft>
         <ItemRight>
-          <DeleteButton onPress={() => dispatch(remove(id))}>
+          <DeleteButton onPress={removeBas}>
             <DeleteText>삭제</DeleteText>
           </DeleteButton>
           <Price kor price={price} size={12} color={'#4e4e4e'} />

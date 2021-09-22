@@ -6,7 +6,7 @@ import ProductPresenter from './ProductPresenter';
 
 interface ProductState {
   loading: boolean;
-  result: Product;
+  result: Product | null;
 }
 
 export default ({
@@ -16,23 +16,13 @@ export default ({
 }: any) => {
   const [product, setProduct] = useState<ProductState>({
     loading: true,
-    result: {
-      images: [],
-      _id: '',
-      title: '',
-      brand_name: '',
-      price: 0,
-      kind: '',
-      content: '',
-      size_content: [],
-      size: [],
-      color: [],
-    },
+    result: null,
   });
 
   const getData = async () => {
     const [getProduct, getProductError] = await mainApi.product(_id);
     if (getProductError) return;
+    console.log(getProduct);
     setProduct({
       loading: false,
       result: {
@@ -44,9 +34,11 @@ export default ({
         price: getProduct.price,
         kind: getProduct.kind,
         content: getProduct.content,
+        rate: getProduct.rate,
         size_content: getProduct.size_content,
         size: getProduct.size,
         color: getProduct.color,
+        AR_image: getProduct.AR_image,
       },
     });
   };
@@ -55,5 +47,6 @@ export default ({
     getData();
   }, [_id]);
 
+  if (!product.result) return <></>;
   return <ProductPresenter refreshFn={getData} {...product} />;
 };

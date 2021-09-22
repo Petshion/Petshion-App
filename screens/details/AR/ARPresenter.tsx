@@ -1,10 +1,10 @@
 import React, {useRef} from 'react';
 import styled from 'styled-components/native';
-import {PermissionsAndroid, Platform} from 'react-native';
+import {Dimensions, PermissionsAndroid, Platform, Text} from 'react-native';
 import ViewShot from 'react-native-view-shot';
 import CameraRoll from '@react-native-community/cameraroll';
-import {ViroARSceneNavigator} from 'react-viro';
-import ARView from '../../../components/AR/ARView';
+import {RNCamera} from 'react-native-camera';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const VRWrap = styled.View`
   flex: 1;
@@ -24,7 +24,19 @@ const CaptureButtonView = styled.View`
   border-radius: 50px;
 `;
 
-export default () => {
+const TestView = styled.View`
+  position: relative;
+  justify-content: center;
+  align-items: center;
+`;
+
+const VRImage = styled.Image`
+  width: 150px;
+  height: 200px;
+  position: absolute;
+`;
+
+export default ({AR_image}) => {
   const captureRef = useRef<ViewShot>(null);
 
   const getPhotoUri = async () => {
@@ -60,12 +72,33 @@ export default () => {
       <ViewShot
         ref={captureRef}
         options={{format: 'jpg', quality: 1.0}}
-        style={{flex: 1}}>
-        <ViroARSceneNavigator autofocus initialScene={{scene: ARView}} />
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <TestView>
+          <RNCamera
+            style={{
+              flex: 1,
+              position: 'relative',
+              width: Dimensions.get('window').width,
+              backgroundColor: Colors.profileTabSelectedColor,
+            }}
+            type={RNCamera.Constants.Type.back}
+            captureAudio={false}
+          />
+          <VRImage
+            source={{
+              uri: AR_image,
+            }}
+            style={{resizeMode: 'contain'}}
+          />
+        </TestView>
       </ViewShot>
-      <CaptureButton onPress={onSave}>
+      {/* <CaptureButton onPress={onSave}>
         <CaptureButtonView />
-      </CaptureButton>
+      </CaptureButton> */}
     </VRWrap>
   );
 };

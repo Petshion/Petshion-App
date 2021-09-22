@@ -133,12 +133,13 @@ export default ({id, color, size}) => {
     await basketApi.addBasket(
       {
         product_id: id,
-        selected_color: selectedColor,
-        selected_size: selectedSize,
-        selected_count: count,
+        color: selectedColor,
+        size: selectedSize,
+        count: count,
       },
-      AUTHItem?.access_token,
+      AUTHItem?.token,
     );
+    navigation.navigate('Basket');
   };
 
   return (

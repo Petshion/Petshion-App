@@ -1,9 +1,10 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 export interface BasketItemState {
-  id: string;
+  _id: string;
+  product_id: string;
   title: string;
-  image: string;
+  thumbnail_image: string;
   color: string;
   size: string;
   count: number;
@@ -37,22 +38,22 @@ export const basketSlice = createSlice({
       });
     },
     toggleSelect: (state, {payload: id}) => {
-      const index = state.baskets.findIndex(basket => basket.id === id);
+      const index = state.baskets.findIndex(basket => basket._id === id);
       state.baskets[index].checked = !state.baskets[index].checked;
     },
     minusCount: (state, {payload: id}) => {
-      const index = state.baskets.findIndex(basket => basket.id === id);
+      const index = state.baskets.findIndex(basket => basket._id === id);
       if (state.baskets[index].count === 1) {
         return;
       }
       state.baskets[index].count = state.baskets[index].count - 1;
     },
     plusCount: (state, {payload: id}) => {
-      const index = state.baskets.findIndex(basket => basket.id === id);
+      const index = state.baskets.findIndex(basket => basket._id === id);
       state.baskets[index].count = state.baskets[index].count + 1;
     },
     remove: (state, {payload: id}) => {
-      const index = state.baskets.findIndex(basket => basket.id === id);
+      const index = state.baskets.findIndex(basket => basket._id === id);
       state.baskets.splice(index, 1);
     },
     orderRemove: state => {

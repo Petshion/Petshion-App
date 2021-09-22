@@ -42,6 +42,7 @@ function Login() {
     // Launched from an external URL
     Linking.getInitialURL().then(url => {
       if (url) {
+        console.log(url);
         handleOpenURL({url});
       }
     });
@@ -51,7 +52,9 @@ function Login() {
 
   const handleOpenURL = ({url}) => {
     // Extract stringified user string out of the URL
+    console.log(url);
     const [, user_string] = url.match(/user=([^#]+)/);
+    console.log(JSON.parse(decodeURI(user_string)));
     dispatch(insert(JSON.parse(decodeURI(user_string))));
   };
 
@@ -65,6 +68,7 @@ function Login() {
     } */
     // Or Linking.openURL on Android
     Linking.openURL(`${serverURL}/auth/google`);
+    //Linking.openURL(`https://petshion-dev.herokuapp.com/auth/google`);
   };
 
   return (
